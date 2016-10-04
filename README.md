@@ -20,6 +20,9 @@ $ npm start
 
 # Build website
 $ npm run build
+
+# Deploy (on your master branch)
+$ npm run deploy
 ```
 
 ## License
