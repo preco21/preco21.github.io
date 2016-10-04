@@ -61,7 +61,7 @@ function config({dev = false} = {}) {
           include: join(__dirname, 'src'),
           loader: extract({
             fallbackLoader: 'style',
-            loader: 'css?modules&localIdentName=[name]__[local]___[hash:base64:5]',
+            loader: 'css?sourceMap&modules&localIdentName=[name]__[local]___[hash:base64:5]',
           }),
         },
       ],
