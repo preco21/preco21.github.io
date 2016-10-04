@@ -1,0 +1,59 @@
+{
+  "name": "prevl-io",
+  "version": "0.0.0",
+  "description": "Prevl IO website",
+  "author": "Plusb Preco <plusb21@gmail.com>",
+  "private": true,
+  "scripts": {
+    "start": "npm run serve",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --ext .js,.jsx .",
+    "build": "webpack",
+    "serve": "babel-node scripts/serve.js",
+    "deploy": "npm run build && npm run gh-pages",
+    "gh-pages": "gh-pages --branch master --dist app"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/preco21/preco21.github.io#readme",
+  "repository": "preco21/preco21.github.io",
+  "bugs": {
+    "url": "https://github.com/preco21/preco21.github.io/issues"
+  },
+  "dependencies": {
+    "animejs": "^1.1.1",
+    "babel-runtime": "^6.11.6",
+    "granim": "^1.0.6",
+    "material-ui": "^0.15.4",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-tap-event-plugin": "^1.0.0",
+    "redbox-react": "^1.3.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-core": "^6.17.0",
+    "babel-eslint": "^7.0.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-1": "^6.16.0",
+    "babel-register": "^6.16.3",
+    "clean-webpack-plugin": "^0.1.11",
+    "copy-webpack-plugin": "^3.0.1",
+    "css-loader": "^0.25.0",
+    "eslint": "^3.7.1",
+    "eslint-config-prev": "^1.8.0",
+    "eslint-plugin-babel": "^3.3.0",
+    "eslint-plugin-import": "^2.0.0",
+    "eslint-plugin-react": "^6.3.0",
+    "extract-text-webpack-plugin": "^2.0.0-beta.4",
+    "gh-pages": "^0.11.0",
+    "html-webpack-plugin": "^2.22.0",
+    "opn": "^4.0.2",
+    "react-hot-loader": "^3.0.0-beta.5",
+    "style-loader": "^0.13.1",
+    "webpack": "^2.1.0-beta.25",
+    "webpack-dev-server": "^2.1.0-beta.8"
+  }
+}
