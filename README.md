@@ -21,3 +21,7 @@ $ npm start
 # Build website
 $ npm run build
 ```
+
+## License
+
+[MIT](http://preco.mit-license.org/) ¯\_(ツ)_/¯
