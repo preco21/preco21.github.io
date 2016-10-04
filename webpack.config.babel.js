@@ -44,7 +44,7 @@ function config({dev = false} = {}) {
     ],
     output: {
       path: join(__dirname, appTarget),
-      filename: `bundle${dev ? '' : '.[chunkhash]'}.js`,
+      filename: `js/bundle${dev ? '' : '.[chunkhash]'}.js`,
     },
     module: {
       rules: [
@@ -68,7 +68,7 @@ function config({dev = false} = {}) {
     },
     plugins: [
       new CleanWebpackPlugin(cleanTarget),
-      new ExtractTextPlugin(`style${dev ? '' : '.[contenthash]'}.css`),
+      new ExtractTextPlugin(`css/style${dev ? '' : '.[contenthash]'}.css`),
       new CopyWebpackPlugin(copyTarget),
       new HTMLWebpackPlugin({
         template: 'templates/index.ejs',
