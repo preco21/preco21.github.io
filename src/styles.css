@@ -13,7 +13,7 @@ html {
   font-size: 16px;
 }
 
-@media (min-width: 25em){
+@media (min-width: 25em) {
    html {
      font-size: calc(16px + (24 - 16) * (100vw - 400px) / (800 - 400));
    }
