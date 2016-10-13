@@ -4,7 +4,7 @@
 
 This branch contains source of [prevl.io](https://prevl.io) website.
 
-## Installation
+## Install
 
 ```bash
 $ git clone https://github.com/preco21/preco21.github.io.git
