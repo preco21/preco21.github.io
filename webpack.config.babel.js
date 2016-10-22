@@ -40,6 +40,7 @@ function config({dev = false} = {}) {
           'react-hot-loader/patch',
         ]
         : []),
+      'babel-polyfill',
       './src/index',
     ],
     output: {
