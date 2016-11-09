@@ -43,7 +43,6 @@
     "css-loader": "^0.25.0",
     "eslint": "^3.7.1",
     "eslint-config-prev": "^1.8.0",
-    "eslint-plugin-babel": "^3.3.0",
     "eslint-plugin-import": "^2.0.0",
     "eslint-plugin-react": "^6.3.0",
     "extract-text-webpack-plugin": "^2.0.0-beta.4",
