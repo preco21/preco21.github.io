@@ -37,10 +37,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div style={{position: 'absolute', width: '100vw', height: '100vh'}}>
+        <div className={styles.wrapper}>
           <div className={styles.container}>
             <div id="text" className={styles.text}>Prevl IO</div>
-            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+            <div className={styles.iconContainer}>
               <a id="icon-github" href="https://github.com/preco21">
                 <IconButton
                   iconClassName="fa fa-github"

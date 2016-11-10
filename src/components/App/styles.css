@@ -1,8 +1,20 @@
+.wrapper {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
 .container {
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconContainer {
+  display: flex;
   justify-content: center;
   align-items: center;
 }
