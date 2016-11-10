@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import anime from 'animejs';
 import IconButton from 'material-ui/IconButton';
 import Background from '../Background';
-import styles from './styles.css';
+import * as styles from './styles.css';
 
 class App extends Component {
   componentDidMount() {

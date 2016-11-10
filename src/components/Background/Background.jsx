@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import granim from '../../utils/granim';
-import styles from './styles.css';
+import * as styles from './styles.css';
 
 class Background extends Component {
   state = {
