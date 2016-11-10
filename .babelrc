@@ -1,5 +1,6 @@
 {
   "presets": [
-    "latest"
+    ["env", {"targets": {"node": true}}],
+    "stage-1"
   ]
 }
