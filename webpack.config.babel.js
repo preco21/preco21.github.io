@@ -41,7 +41,7 @@ function config({dev = false} = {}) {
         ]
         : []),
       'babel-polyfill',
-      './src/index',
+      './src',
     ],
     output: {
       path: join(__dirname, appTarget),
@@ -52,7 +52,7 @@ function config({dev = false} = {}) {
         {
           test: /\.jsx?$/,
           include: join(__dirname, 'src'),
-          loader: 'babel',
+          loader: 'babel-loader',
           options: {
             cacheDirectory: dev,
           },
@@ -61,16 +61,25 @@ function config({dev = false} = {}) {
           test: /\.css$/,
           include: join(__dirname, 'src'),
           loader: extract({
-            fallbackLoader: 'style',
-            loader: 'css?sourceMap&modules&localIdentName=[name]__[local]___[hash:base64:5]',
+            fallbackLoader: 'style-loader',
+            loader: 'css-loader',
+            query: {
+              sourceMap: true,
+              modules: true,
+              localIdentName: '[name]__[local]___[hash:base64:5]',
+            },
           }),
         },
       ],
     },
     plugins: [
       new CleanWebpackPlugin(cleanTarget),
-      new ExtractTextPlugin(`css/style${dev ? '' : '.[contenthash]'}.css`),
       new CopyWebpackPlugin(copyTarget),
+      new ExtractTextPlugin({
+        filename: `css/style${dev ? '' : '.[contenthash]'}.css`,
+        disable: false,
+        allChunks: true,
+      }),
       new HTMLWebpackPlugin({
         template: 'templates/index.ejs',
         inject: false,
@@ -86,16 +95,19 @@ function config({dev = false} = {}) {
               NODE_ENV: JSON.stringify('production'),
             },
           }),
-          // backward compatibility
-          new LoaderOptionsPlugin({
-            minimize: !dev,
-            debug: dev,
-          }),
           new UglifyJsPlugin({
             sourceMap: true,
             mangle: true,
             compress: {
               warnings: false,
+            },
+          }),
+          // backward compatibility
+          new LoaderOptionsPlugin({
+            minimize: !dev,
+            debug: dev,
+            options: {
+              context: __dirname,
             },
           }),
         ]),
