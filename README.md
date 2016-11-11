@@ -30,4 +30,4 @@ $ npm run deploy
 
 ## License
 
-[MIT](http://preco.mit-license.org/) ¯\_(ツ)_/¯
+[MIT](http://preco.mit-license.org/) ¯\\\_(ツ)\_/¯
