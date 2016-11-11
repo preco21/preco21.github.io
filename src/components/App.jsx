@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import App from './App';
+import Main from './Main';
+import Background from './Background';
 
-class AppThemeWrapper extends Component {
+class App extends Component {
   componentWillMount() {
     injectTapEventPlugin();
   }
@@ -11,12 +12,15 @@ class AppThemeWrapper extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <App />
+        <div>
+          <Main />
+          <Background />
+        </div>
       </MuiThemeProvider>
     );
   }
 }
 
 export {
-  AppThemeWrapper as default,
+  App as default,
 };
