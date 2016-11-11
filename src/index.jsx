@@ -1,22 +1,21 @@
 import './styles.css';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {render} from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
-import AppThemeWrapper from './components/AppThemeWrapper';
+import RedBox from 'redbox-react';
+import App from './components/App';
 
-let errorReporter = null;
-
-if (process.env.NODE_ENV !== 'production') {
-  errorReporter = require('redbox-react');
-}
-
-ReactDOM.render(
-  <AppContainer errorReporter={errorReporter}>
-    <AppThemeWrapper />
-  </AppContainer>,
-  document.getElementById('app'),
-);
+renderApp();
 
 if (module.hot) {
-  module.hot.accept();
+  module.hot.accept('./components/App', () => renderApp());
+}
+
+function renderApp() {
+  render(
+    <AppContainer errorReporter={RedBox}>
+      <App />
+    </AppContainer>,
+    document.getElementById('app'),
+  );
 }
