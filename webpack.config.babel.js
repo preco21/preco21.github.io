@@ -3,6 +3,8 @@ import {
   DefinePlugin,
   LoaderOptionsPlugin,
   HotModuleReplacementPlugin,
+  NamedModulesPlugin,
+  NoErrorsPlugin,
   optimize,
 } from 'webpack';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
@@ -33,13 +35,7 @@ function config({dev = false} = {}) {
   return {
     devtool: dev ? 'eval-source-map' : 'hidden-source-map',
     entry: [
-      ...(dev
-        ? [
-          'webpack-dev-server/client?http://localhost:8080',
-          'webpack/hot/only-dev-server',
-          'react-hot-loader/patch',
-        ]
-        : []),
+      ...(dev ? ['react-hot-loader/patch'] : []),
       'babel-polyfill',
       './src',
     ],
@@ -60,26 +56,37 @@ function config({dev = false} = {}) {
         {
           test: /\.css$/,
           include: join(__dirname, 'src'),
-          loader: extract({
-            fallbackLoader: 'style-loader',
-            loader: 'css-loader',
-            query: {
-              sourceMap: true,
-              modules: true,
-              localIdentName: '[name]__[local]___[hash:base64:5]',
-            },
-          }),
+          ...(dev
+            ? {
+              use: [
+                'style-loader',
+                {
+                  loader: 'css-loader',
+                  options: {
+                    sourceMap: true,
+                    modules: true,
+                    localIdentName: '[name]__[local]___[hash:base64:5]',
+                  },
+                },
+              ],
+            }
+            : {
+              loader: extract({
+                fallbackLoader: 'style-loader',
+                loader: 'css-loader',
+                query: {
+                  sourceMap: true,
+                  modules: true,
+                  localIdentName: '[name]__[local]___[hash:base64:5]',
+                },
+              }),
+            }),
         },
       ],
     },
     plugins: [
       new CleanWebpackPlugin(cleanTarget),
       new CopyWebpackPlugin(copyTarget),
-      new ExtractTextPlugin({
-        filename: `css/style${dev ? '' : '.[contenthash]'}.css`,
-        disable: false,
-        allChunks: true,
-      }),
       new HTMLWebpackPlugin({
         template: 'templates/index.ejs',
         inject: false,
@@ -87,6 +94,8 @@ function config({dev = false} = {}) {
       ...(dev
         ? [
           new HotModuleReplacementPlugin(),
+          new NamedModulesPlugin(),
+          new NoErrorsPlugin(),
         ]
         : [
           new DedupePlugin(),
@@ -94,6 +103,11 @@ function config({dev = false} = {}) {
             'process.env': {
               NODE_ENV: JSON.stringify('production'),
             },
+          }),
+          new ExtractTextPlugin({
+            filename: `css/style${dev ? '' : '.[contenthash]'}.css`,
+            disable: false,
+            allChunks: true,
           }),
           new UglifyJsPlugin({
             sourceMap: true,
