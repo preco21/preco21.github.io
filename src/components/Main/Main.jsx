@@ -41,15 +41,15 @@ class Main extends Component {
           <div className={styles.iconContainer}>
             <a id="icon-github" href="https://github.com/preco21">
               <IconButton
+                className={styles.icon}
                 iconClassName="fa fa-github"
-                style={{width: '6rem', height: '6rem'}}
                 iconStyle={{fontSize: '4rem', color: 'white'}}
               />
             </a>
             <a id="icon-twitter" href="https://twitter.com/preco21_">
               <IconButton
+                className={styles.icon}
                 iconClassName="fa fa-twitter"
-                style={{width: '6rem', height: '6rem'}}
                 iconStyle={{fontSize: '4rem', color: 'white'}}
               />
             </a>
