@@ -1,6 +1,5 @@
 import {join} from 'path';
 import {
-  DefinePlugin,
   LoaderOptionsPlugin,
   HotModuleReplacementPlugin,
   NamedModulesPlugin,
@@ -13,7 +12,6 @@ import ExtractTextPlugin, {extract} from 'extract-text-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 
 const {
-  DedupePlugin,
   UglifyJsPlugin,
 } = optimize;
 
@@ -98,7 +96,6 @@ function config({dev = false} = {}) {
           new NoErrorsPlugin(),
         ]
         : [
-          new DedupePlugin(),
           new DefinePlugin({
             'process.env': {
               NODE_ENV: JSON.stringify('production'),
