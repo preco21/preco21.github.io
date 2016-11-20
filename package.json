@@ -5,11 +5,11 @@
   "author": "Plusb Preco <plusb21@gmail.com>",
   "private": true,
   "scripts": {
-    "start": "npm run serve",
+    "start": "npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --ext .js,.jsx .",
     "build": "webpack",
-    "serve": "babel-node scripts/serve.js",
+    "dev": "babel-node scripts/serve.js",
     "deploy": "npm run build && npm run gh-pages",
     "gh-pages": "gh-pages --branch master --dist app"
   },
