@@ -1,5 +1,6 @@
 import {join} from 'path';
 import {
+  DefinePlugin,
   LoaderOptionsPlugin,
   HotModuleReplacementPlugin,
   NamedModulesPlugin,
