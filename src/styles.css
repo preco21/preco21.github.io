@@ -1,20 +1,28 @@
-* {
+html {
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  font-size: 16px;
   overflow: hidden;
-  font-family: sans-serif;
 }
 
-html {
-  font-size: 16px;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+[data-reactroot] {
+  height: 100%;
 }
 
 @media (min-width: 25em) {
-   html {
-     font-size: calc(16px + (24 - 16) * (100vw - 400px) / (800 - 400));
-   }
- }
+  html {
+    font-size: calc(16px + (24 - 16) * (100vw - 400px) / (800 - 400));
+  }
+}

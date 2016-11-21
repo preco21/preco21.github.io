@@ -20,7 +20,7 @@
     <% for (const file of htmlWebpackPlugin.files.css) { %><link rel="stylesheet" href="<%= file %>" /><% } %>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app" style="height: 100%"></div>
 
     <!-- scripts -->
     <% for (const file of htmlWebpackPlugin.files.js) { %><script src="<%= file %>"></script><% } %>
