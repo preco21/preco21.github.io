@@ -7,10 +7,10 @@ import {
   NoErrorsPlugin,
   optimize,
 } from 'webpack';
-import HTMLWebpackPlugin from 'html-webpack-plugin';
-import CopyWebpackPlugin from 'copy-webpack-plugin';
+import HTMLPlugin from 'html-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 import ExtractTextPlugin, {extract} from 'extract-text-webpack-plugin';
-import CleanWebpackPlugin from 'clean-webpack-plugin';
+import CleanPlugin from 'clean-webpack-plugin';
 
 const {
   UglifyJsPlugin,
@@ -84,9 +84,9 @@ function config({dev = false} = {}) {
       ],
     },
     plugins: [
-      new CleanWebpackPlugin(cleanTarget),
-      new CopyWebpackPlugin(copyTarget),
-      new HTMLWebpackPlugin({
+      new CleanPlugin(cleanTarget),
+      new CopyPlugin(copyTarget),
+      new HTMLPlugin({
         template: 'templates/index.ejs',
         inject: false,
       }),
