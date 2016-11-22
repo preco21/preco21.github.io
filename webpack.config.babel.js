@@ -1,4 +1,4 @@
-import {join} from 'path';
+import {resolve} from 'path';
 import {
   DefinePlugin,
   LoaderOptionsPlugin,
@@ -39,14 +39,14 @@ function config({dev = false} = {}) {
       './src',
     ],
     output: {
-      path: join(__dirname, appTarget),
+      path: resolve(__dirname, appTarget),
       filename: `js/bundle${dev ? '' : '.[chunkhash]'}.js`,
     },
     module: {
       rules: [
         {
           test: /\.jsx?$/,
-          include: join(__dirname, 'src'),
+          include: resolve(__dirname, 'src'),
           loader: 'babel-loader',
           options: {
             cacheDirectory: dev,
@@ -54,7 +54,7 @@ function config({dev = false} = {}) {
         },
         {
           test: /\.css$/,
-          include: join(__dirname, 'src'),
+          include: resolve(__dirname, 'src'),
           ...(dev
             ? {
               use: [
