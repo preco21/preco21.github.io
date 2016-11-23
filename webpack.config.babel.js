@@ -98,9 +98,7 @@ function config({dev = false} = {}) {
         ]
         : [
           new DefinePlugin({
-            'process.env': {
-              NODE_ENV: JSON.stringify('production'),
-            },
+            'process.env.NODE_ENV': JSON.stringify('production'),
           }),
           new ExtractTextPlugin({
             filename: `css/style${dev ? '' : '.[contenthash]'}.css`,
