@@ -11,6 +11,7 @@ import HTMLPlugin from 'html-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import ExtractTextPlugin, {extract} from 'extract-text-webpack-plugin';
 import CleanPlugin from 'clean-webpack-plugin';
+import OfflinePlugin from 'offline-plugin';
 
 const {
   UglifyJsPlugin,
@@ -120,6 +121,7 @@ function config({dev = false} = {}) {
               context: __dirname,
             },
           }),
+          new OfflinePlugin(),
         ]),
     ],
     resolve: {
