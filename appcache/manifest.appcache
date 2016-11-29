@@ -1,17 +1,17 @@
 CACHE MANIFEST
-#ver:2016-11-28 17:49:07
+#ver:2016-11-29 16:35:36
 
 CACHE:
 ../js/bundle.344f45547e1dc7ac80db.js
 ../css/style.902f9dcc352a90940826a40ec66c69a6.css
-../images/app-icon-144.png
-../images/favicon-16.png
-../images/favicon-32.png
-../images/favicon-48.png
-../images/favicon-62.png
-../manifest.json
-../favicon.ico
 ../CNAME
+../favicon.ico
+../images/app-icon-144.png
+../images/favicon-48.png
+../images/favicon-16.png
+../images/favicon-62.png
+../images/favicon-32.png
+../manifest.json
 ../README.md
 ../
 
