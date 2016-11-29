@@ -103,17 +103,16 @@ function config({dev = false} = {}) {
           }),
           new ExtractTextPlugin({
             filename: `css/style${dev ? '' : '.[contenthash]'}.css`,
-            disable: false,
             allChunks: true,
           }),
           new UglifyJsPlugin({
             sourceMap: true,
-            mangle: true,
+            comments: false,
             compress: {
               warnings: false,
             },
           }),
-          // backward compatibility
+          // Backward ncompatibility
           new LoaderOptionsPlugin({
             minimize: !dev,
             debug: dev,
