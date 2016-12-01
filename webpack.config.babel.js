@@ -112,7 +112,6 @@ function config({dev = false} = {}) {
               warnings: false,
             },
           }),
-          // Backward ncompatibility
           new LoaderOptionsPlugin({
             minimize: !dev,
             debug: dev,
