@@ -18,7 +18,7 @@ const devServer = new WebpackDevServer(webpack(config), {
   hot: true,
   historyApiFallback: true,
   stats: {
-    color: true,
+    colors: true,
   },
 });
 
