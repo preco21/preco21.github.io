@@ -10,7 +10,7 @@ install();
 renderApp();
 
 if (module.hot) {
-  module.hot.accept('./components/App', () => renderApp());
+  module.hot.accept('./components/App', renderApp);
 }
 
 function renderApp() {
