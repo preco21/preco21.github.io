@@ -23,7 +23,7 @@ const cleanTarget = [
 ];
 const copyTarget = [
   {
-    from: 'contents',
+    from: 'content',
   },
 ];
 
