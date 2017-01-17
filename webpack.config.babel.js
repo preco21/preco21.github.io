@@ -88,7 +88,7 @@ function config({dev = false} = {}) {
       new CleanPlugin(cleanTarget),
       new CopyPlugin(copyTarget),
       new HTMLPlugin({
-        template: 'templates/index.ejs',
+        template: 'src/template.ejs',
         inject: false,
       }),
       ...(dev
