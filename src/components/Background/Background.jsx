@@ -15,6 +15,22 @@ class Background extends Component {
 
   componentDidMount() {
     window.addEventListener('resize', this.handleResize);
+
+    granim({
+      element: '#granim-container',
+      direction: 'bottom-right',
+      opacity: [1, 1],
+      isPausedWhenNotInView: true,
+      states: {
+        'default-state': {
+          gradients: [
+            ['#47d2ff', '#1bc6ff'],
+            ['#3fc0ff', '#11b3ff'],
+            ['#0f5f66', '#045366'],
+          ],
+        },
+      },
+    });
   }
 
   shouldComponentUpdate() {
@@ -36,32 +52,10 @@ class Background extends Component {
   render() {
     return (
       <canvas
+        id="granim-container"
         className={styles.content}
         width={this.state.width}
         height={this.state.height}
-        ref={(el) => {
-          if (!el) {
-            return;
-          }
-
-          const granimEl = granim({
-            element: el,
-            direction: 'bottom-right',
-            opacity: [1, 1],
-            isPausedWhenNotInView: true,
-            states: {
-              'default-state': {
-                gradients: [
-                  ['#47d2ff', '#1bc6ff'],
-                  ['#3fc0ff', '#11b3ff'],
-                  ['#0f5f66', '#045366'],
-                ],
-              },
-            },
-          });
-
-          this.setState({granim: granimEl});
-        }}
       />
     );
   }
