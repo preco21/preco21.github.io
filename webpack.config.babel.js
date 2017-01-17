@@ -4,7 +4,7 @@ import {
   LoaderOptionsPlugin,
   HotModuleReplacementPlugin,
   NamedModulesPlugin,
-  NoErrorsPlugin,
+  NoEmitOnErrorsPlugin,
   optimize,
 } from 'webpack';
 import HTMLPlugin from 'html-webpack-plugin';
@@ -95,7 +95,7 @@ function config({dev = false} = {}) {
         ? [
           new HotModuleReplacementPlugin(),
           new NamedModulesPlugin(),
-          new NoErrorsPlugin(),
+          new NoEmitOnErrorsPlugin(),
         ]
         : [
           new DefinePlugin({

@@ -24,7 +24,7 @@
     "babel-polyfill": "^6.16.0",
     "granim": "^1.0.6",
     "material-ui": "^0.16.1",
-    "offline-plugin": "^3.4.2",
+    "offline-plugin": "^4.5.5",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-tap-event-plugin": "^2.0.0",
@@ -42,7 +42,7 @@
     "clean-webpack-plugin": "^0.1.14",
     "copy-webpack-plugin": "^4.0.0",
     "css-loader": "^0.26.0",
-    "eslint": "^3.11.1",
+    "eslint": "latest",
     "eslint-config-prev": "^3.1.0",
     "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-import": "^2.2.0",
@@ -54,7 +54,7 @@
     "opn": "^4.0.2",
     "react-hot-loader": "^3.0.0-beta.6",
     "style-loader": "^0.13.1",
-    "webpack": "^2.1.0-beta.25",
-    "webpack-dev-server": "^2.1.0-beta.8"
+    "webpack": "2.2.0-rc.7",
+    "webpack-dev-server": "2.2.0-rc.0"
   }
 }
