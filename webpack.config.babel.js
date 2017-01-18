@@ -108,9 +108,6 @@ function config({dev = false} = {}) {
           new UglifyJsPlugin({
             sourceMap: true,
             comments: false,
-            compress: {
-              warnings: false,
-            },
           }),
           new LoaderOptionsPlugin({
             minimize: !dev,
