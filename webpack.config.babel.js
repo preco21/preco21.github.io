@@ -17,11 +17,10 @@ const {
   UglifyJsPlugin,
 } = optimize;
 
-const appTarget = 'app';
-const cleanTarget = [
-  appTarget,
-];
-const copyTarget = [
+const src = 'src';
+const dest = 'app';
+const clean = [dest];
+const copy = [
   {
     from: 'content',
   },
@@ -37,17 +36,17 @@ function config({dev = false} = {}) {
     entry: [
       ...(dev ? ['react-hot-loader/patch'] : []),
       'babel-polyfill',
-      './src',
+      `./${src}`,
     ],
     output: {
-      path: resolve(__dirname, appTarget),
+      path: resolve(__dirname, dest),
       filename: `js/bundle${dev ? '' : '.[chunkhash]'}.js`,
     },
     module: {
       rules: [
         {
           test: /\.jsx?$/,
-          include: resolve(__dirname, 'src'),
+          include: resolve(__dirname, src),
           loader: 'babel-loader',
           options: {
             cacheDirectory: dev,
@@ -55,7 +54,7 @@ function config({dev = false} = {}) {
         },
         {
           test: /\.css$/,
-          include: resolve(__dirname, 'src'),
+          include: resolve(__dirname, src),
           ...(dev
             ? {
               use: [
@@ -85,10 +84,10 @@ function config({dev = false} = {}) {
       ],
     },
     plugins: [
-      new CleanPlugin(cleanTarget),
-      new CopyPlugin(copyTarget),
+      new CleanPlugin(clean),
+      new CopyPlugin(copy),
       new HTMLPlugin({
-        template: 'src/template.ejs',
+        template: `${src}/template.ejs`,
         inject: false,
       }),
       ...(dev
