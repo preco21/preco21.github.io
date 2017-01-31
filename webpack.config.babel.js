@@ -40,7 +40,7 @@ function config({dev = false} = {}) {
     ],
     output: {
       path: resolve(__dirname, dest),
-      filename: `js/bundle${dev ? '' : '.[chunkhash]'}.js`,
+      filename: `bundle${dev ? '' : '.[chunkhash]'}.js`,
     },
     module: {
       rules: [
@@ -101,7 +101,7 @@ function config({dev = false} = {}) {
             'process.env.NODE_ENV': JSON.stringify('production'),
           }),
           new ExtractTextPlugin({
-            filename: `css/style${dev ? '' : '.[contenthash]'}.css`,
+            filename: `style${dev ? '' : '.[contenthash]'}.css`,
             allChunks: true,
           }),
           new UglifyJsPlugin({
