@@ -23,7 +23,7 @@
     "animejs": "^1.1.1",
     "babel-polyfill": "^6.16.0",
     "granim": "^1.0.6",
-    "material-ui": "^0.16.1",
+    "material-ui": "^1.0.0-beta.1",
     "offline-plugin": "^4.5.5",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
