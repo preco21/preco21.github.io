@@ -22,7 +22,7 @@ const devServer = new WebpackDevServer(webpack(config), {
   },
 });
 
-devServer.listen(port, host, (err) => {
+devServer.listen(port, host, async (err) => {
   if (err) {
     console.error(err); // eslint-disable-line no-console
 
@@ -30,5 +30,5 @@ devServer.listen(port, host, (err) => {
   }
 
   console.log(`Listening at ${url}`); // eslint-disable-line no-console
-  opn(url);
+  await opn(url);
 });
