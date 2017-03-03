@@ -17,14 +17,21 @@ $ npm install
 
 ## Usage
 
+### Serve website
+
 ```bash
-# Serve website
 $ npm start
+```
 
-# Build website
+### Build website
+
+```bash
 $ npm run build
+```
 
-# Deploy (on your master branch)
+### Deploy (on your master branch)
+
+```bash
 $ npm run deploy
 ```
 
