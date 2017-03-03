@@ -90,6 +90,17 @@ function config({dev = false} = {}) {
         template: `${src}/template.ejs`,
         inject: false,
       }),
+      new OfflinePlugin(),
+      new DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify(dev ? 'development' : 'production'),
+      }),
+      new LoaderOptionsPlugin({
+        minimize: !dev,
+        debug: dev,
+        options: {
+          context: __dirname,
+        },
+      }),
       ...(dev
         ? [
           new HotModuleReplacementPlugin(),
@@ -97,9 +108,6 @@ function config({dev = false} = {}) {
           new NoEmitOnErrorsPlugin(),
         ]
         : [
-          new DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('production'),
-          }),
           new ExtractTextPlugin({
             filename: `style${dev ? '' : '.[contenthash]'}.css`,
             allChunks: true,
@@ -108,14 +116,6 @@ function config({dev = false} = {}) {
             sourceMap: true,
             comments: false,
           }),
-          new LoaderOptionsPlugin({
-            minimize: !dev,
-            debug: dev,
-            options: {
-              context: __dirname,
-            },
-          }),
-          new OfflinePlugin(),
         ]),
     ],
     resolve: {
