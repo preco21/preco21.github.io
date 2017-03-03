@@ -28,7 +28,7 @@ const copy = [
 
 function config({dev = false} = {}) {
   if (dev) {
-    process.env.BABEL_ENV = 'development';
+    process.env.NODE_ENV = 'development';
   }
 
   return {
