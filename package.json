@@ -6,8 +6,7 @@
   "private": true,
   "scripts": {
     "start": "npm run dev",
-    "test": "npm run lint",
-    "lint": "eslint --ext .js,.jsx .",
+    "test": "eslint --ext .js,.jsx .",
     "build": "webpack --progress",
     "dev": "babel-node scripts/serve.js",
     "deploy": "npm run build && npm run gh-pages",
