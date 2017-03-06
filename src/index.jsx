@@ -3,15 +3,11 @@ import React from 'react';
 import {render} from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 import RedBox from 'redbox-react';
-import {install} from 'offline-plugin/runtime';
 import App from './components/App';
 
-install();
+injectOfflinePlugin();
 renderApp();
-
-if (module.hot) {
-  module.hot.accept('./components/App', renderApp);
-}
+applyHotLoader();
 
 function renderApp() {
   render(
@@ -20,4 +16,18 @@ function renderApp() {
     </AppContainer>,
     document.getElementById('app'),
   );
+}
+
+function injectOfflinePlugin() {
+  if (process.env.NODE_ENV === 'production') {
+    const {install} = require('offline-plugin/runtime');
+
+    install();
+  }
+}
+
+function applyHotLoader() {
+  if (module.hot) {
+    module.hot.accept('./components/App', renderApp);
+  }
 }
