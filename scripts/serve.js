@@ -3,8 +3,6 @@ import WebpackDevServer from 'webpack-dev-server';
 import opn from 'opn';
 import webpackConfig from '../webpack.config.babel';
 
-process.env.NODE_ENV = 'development';
-
 const host = 'localhost';
 const port = 3000;
 const url = `http://${host}:${port}/`;
