@@ -27,9 +27,7 @@ const copy = [
 ];
 
 function config({dev = false} = {}) {
-  if (dev) {
-    process.env.NODE_ENV = 'development';
-  }
+  const env = dev ? 'development' : 'production';
 
   return {
     devtool: dev ? 'eval-source-map' : 'hidden-source-map',
@@ -50,6 +48,7 @@ function config({dev = false} = {}) {
           loader: 'babel-loader',
           options: {
             cacheDirectory: dev,
+            forceEnv: env,
           },
         },
         {
@@ -91,7 +90,7 @@ function config({dev = false} = {}) {
         inject: false,
       }),
       new DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(dev ? 'development' : 'production'),
+        'process.env.NODE_ENV': JSON.stringify(env),
       }),
       new LoaderOptionsPlugin({
         minimize: !dev,
