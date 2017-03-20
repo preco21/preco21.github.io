@@ -90,7 +90,6 @@ function config({dev = false} = {}) {
         template: `${src}/template.ejs`,
         inject: false,
       }),
-      new OfflinePlugin(),
       new DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(dev ? 'development' : 'production'),
       }),
@@ -116,6 +115,7 @@ function config({dev = false} = {}) {
             sourceMap: true,
             comments: false,
           }),
+          new OfflinePlugin(),
         ]),
     ],
     resolve: {
