@@ -32,7 +32,11 @@ function config({dev = false} = {}) {
   return {
     devtool: dev ? 'eval-source-map' : 'hidden-source-map',
     entry: [
-      ...(dev ? ['react-hot-loader/patch'] : []),
+      ...(dev ? [
+        'webpack-dev-server/client?http://localhost:3000/',
+        'webpack/hot/only-dev-server',
+        'react-hot-loader/patch',
+      ] : []),
       'babel-polyfill',
       `./${src}`,
     ],

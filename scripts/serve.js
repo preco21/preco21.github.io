@@ -8,12 +8,6 @@ const port = 3000;
 const url = `http://${host}:${port}/`;
 
 const config = webpackConfig({dev: true});
-
-config.entry.unshift(
-  `webpack-dev-server/client?${url}`,
-  'webpack/hot/only-dev-server',
-);
-
 const devServer = new WebpackDevServer(webpack(config), {
   hot: true,
   historyApiFallback: true,
