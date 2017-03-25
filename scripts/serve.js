@@ -4,7 +4,7 @@ import opn from 'opn';
 import webpackConfig from '../webpack.config.babel';
 
 const host = 'localhost';
-const port = 3000;
+const port = process.env.PORT || 3000;
 const url = `http://${host}:${port}/`;
 
 const config = webpackConfig({dev: true});

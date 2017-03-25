@@ -9,6 +9,11 @@
       "plugins": [
         "react-hot-loader/babel"
       ]
+    },
+    "production": {
+      "presets": [
+        "babili"
+      ]
     }
   }
 }
