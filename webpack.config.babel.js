@@ -35,7 +35,7 @@ const cssLoader = {
   },
 };
 
-function config({dev = false} = {}) {
+function config({dev} = {}) {
   const env = dev ? 'development' : 'production';
 
   return {
@@ -67,15 +67,13 @@ function config({dev = false} = {}) {
         {
           test: /\.css$/,
           include: resolve(__dirname, src),
-          use: dev
-            ? [
-              'style-loader',
-              cssLoader,
-            ]
-            : extract({
-              fallback: 'style-loader',
-              use: cssLoader,
-            }),
+          use: dev ? [
+            'style-loader',
+            cssLoader,
+          ] : extract({
+            fallback: 'style-loader',
+            use: cssLoader,
+          }),
         },
       ],
     },
@@ -96,20 +94,18 @@ function config({dev = false} = {}) {
           context: __dirname,
         },
       }),
-      ...(dev
-        ? [
-          new HotModuleReplacementPlugin(),
-          new NamedModulesPlugin(),
-          new NoEmitOnErrorsPlugin(),
-        ]
-        : [
-          new OfflinePlugin(),
-          new ExtractTextPlugin({
-            filename: `style${dev ? '' : '.[contenthash]'}.css`,
-            allChunks: true,
-          }),
-          new BabiliPlugin(),
-        ]),
+      ...(dev ? [
+        new HotModuleReplacementPlugin(),
+        new NamedModulesPlugin(),
+        new NoEmitOnErrorsPlugin(),
+      ] : [
+        new OfflinePlugin(),
+        new ExtractTextPlugin({
+          filename: `style${dev ? '' : '.[contenthash]'}.css`,
+          allChunks: true,
+        }),
+        new BabiliPlugin(),
+      ]),
     ],
     resolve: {
       extensions: ['.js', '.jsx', '.json'],
