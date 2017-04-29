@@ -86,7 +86,7 @@ function config({dev} = {}) {
       new DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(env),
       }),
-      ...(dev ? [
+      ...dev ? [
         new HotModuleReplacementPlugin(),
         new NamedModulesPlugin(),
         new NoEmitOnErrorsPlugin(),
@@ -97,7 +97,7 @@ function config({dev} = {}) {
           allChunks: true,
         }),
         new BabiliPlugin(),
-      ]),
+      ],
     ],
     resolve: {
       extensions: ['.js', '.jsx', '.json'],
