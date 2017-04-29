@@ -1,7 +1,6 @@
 import {resolve} from 'path';
 import {
   DefinePlugin,
-  LoaderOptionsPlugin,
   HotModuleReplacementPlugin,
   NamedModulesPlugin,
   NoEmitOnErrorsPlugin,
@@ -86,13 +85,6 @@ function config({dev} = {}) {
       }),
       new DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(env),
-      }),
-      new LoaderOptionsPlugin({
-        minimize: !dev,
-        debug: dev,
-        options: {
-          context: __dirname,
-        },
       }),
       ...(dev ? [
         new HotModuleReplacementPlugin(),
