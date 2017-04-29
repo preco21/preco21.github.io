@@ -1625,9 +1625,9 @@ css-color-names@0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/css-color-names/-/css-color-names-0.0.4.tgz#808adc2e79cf84738069b646cb20ec27beb629e0"
 
-css-loader@^0.27.3:
-  version "0.27.3"
-  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-0.27.3.tgz#69ab6f47b69bfb1b5acee61bac2aab14302ff0dc"
+css-loader@^0.28.0:
+  version "0.28.0"
+  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-0.28.0.tgz#417cfa9789f8cde59a30ccbf3e4da7a806889bad"
   dependencies:
     babel-code-frame "^6.11.0"
     css-selector-tokenizer "^0.7.0"
@@ -2049,9 +2049,9 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-config-prev@^3.8.0:
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prev/-/eslint-config-prev-3.8.0.tgz#f4ba7c5211cd4633dd8c9e6dd958100050cb27a2"
+eslint-config-prev@^4.0.0:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/eslint-config-prev/-/eslint-config-prev-4.0.2.tgz#32a4d6a2222707e30fb63ae84934853d01ca0a28"
 
 eslint-import-resolver-node@^0.2.0:
   version "0.2.3"
