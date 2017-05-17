@@ -8,6 +8,7 @@ import {
 import CleanPlugin from 'clean-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import HTMLPlugin from 'html-webpack-plugin';
+import PrepackPlugin from 'prepack-webpack-plugin';
 import BabiliPlugin from 'babili-webpack-plugin';
 import ExtractTextPlugin, {extract} from 'extract-text-webpack-plugin';
 import OfflinePlugin from 'offline-plugin';
@@ -91,6 +92,7 @@ function config({dev} = {}) {
         new NamedModulesPlugin(),
         new NoEmitOnErrorsPlugin(),
       ] : [
+        new PrepackPlugin(),
         new BabiliPlugin(),
         new ExtractTextPlugin({
           filename: `style${dev ? '' : '.[contenthash]'}.css`,
