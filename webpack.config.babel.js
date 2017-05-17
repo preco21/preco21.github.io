@@ -89,6 +89,12 @@ function config({dev} = {}) {
       new HTMLPlugin({
         template: `${src}/template.ejs`,
         inject: false,
+        minify: {
+          removeComments: true,
+          collapseWhitespace: true,
+          minifyCSS: true,
+          minifyJS: true,
+        },
       }),
       new DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(env),
