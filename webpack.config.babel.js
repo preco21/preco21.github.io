@@ -40,11 +40,11 @@ function config({dev} = {}) {
   return {
     devtool: dev ? 'eval-source-map' : 'hidden-source-map',
     entry: [
-      ...(dev ? [
+      ...dev ? [
         `webpack-dev-server/client?${url}`,
         'webpack/hot/only-dev-server',
         'react-hot-loader/patch',
-      ] : []),
+      ] : [],
       'babel-polyfill',
       `./${src}/index.jsx`,
     ],
