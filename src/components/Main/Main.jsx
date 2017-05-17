@@ -8,27 +8,27 @@ class Main extends Component {
     anime({
       targets: '#text',
       translateY: ['12rem', '0rem'],
-      delay: 500,
-      easing: 'easeInOutExpo',
-      duration: 2400,
+      delay: 520,
+      easing: 'easeOutExpo',
+      duration: 2200,
       opacity: [0, 1],
     });
 
     anime({
       targets: '#icon-github',
       translateY: ['10rem', '0rem'],
-      delay: 520,
-      easing: 'easeInOutExpo',
-      duration: 2600,
+      delay: 600,
+      easing: 'easeOutExpo',
+      duration: 2400,
       opacity: [0, 1],
     });
 
     anime({
       targets: '#icon-twitter',
       translateY: ['10rem', '0rem'],
-      delay: 520,
-      easing: 'easeInOutExpo',
-      duration: 2600,
+      delay: 600,
+      easing: 'easeOutExpo',
+      duration: 2400,
       opacity: [0, 1],
     });
   }
