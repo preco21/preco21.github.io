@@ -27,15 +27,6 @@ const copy = [
   },
 ];
 
-const cssLoader = {
-  loader: 'css-loader',
-  options: {
-    sourceMap: true,
-    modules: true,
-    localIdentName: '[name]__[local]___[hash:base64:5]',
-  },
-};
-
 function config({dev} = {}) {
   const env = dev ? 'development' : 'production';
 
@@ -70,10 +61,24 @@ function config({dev} = {}) {
           include: resolve(__dirname, src),
           use: dev ? [
             'style-loader',
-            cssLoader,
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true,
+                modules: true,
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
+            },
           ] : extract({
             fallback: 'style-loader',
-            use: cssLoader,
+            use: {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true,
+                modules: true,
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
+            },
           }),
         },
       ],
