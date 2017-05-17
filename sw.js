@@ -1,3 +1,740 @@
-var __wpo = {"assets":{"main":["./js/bundle.344f45547e1dc7ac80db.js","./css/style.902f9dcc352a90940826a40ec66c69a6.css","./CNAME","./favicon.ico","./images/app-icon-144.png","./images/favicon-48.png","./images/favicon-16.png","./images/favicon-62.png","./images/favicon-32.png","./manifest.json","./README.md","./"],"additional":[],"optional":[]},"hashesMap":{"344f45547e1dc7ac80dbb2e187b3a490":"./js/bundle.344f45547e1dc7ac80db.js","902f9dcc352a90940826a40ec66c69a6":"./css/style.902f9dcc352a90940826a40ec66c69a6.css","45d5f88b18b74dba29768a5dedef09eb":"./CNAME","db3bdc89097a7d7ddf0833b2585bef06":"./favicon.ico","e5a7748ba9f259f0edaaa0a412ca5861":"./images/app-icon-144.png","2b93db1efb56b8af6ecae6a6928e9aa6":"./images/favicon-48.png","61b54963c110b67e3bc884bc8717feaf":"./images/favicon-16.png","06dba097b2c5be01989b1f9d6c6498c0":"./images/favicon-62.png","62b32d76873244a8d48622c73ffa702c":"./images/favicon-32.png","5f5db01b14b3818d8b52393ecdcd7986":"./manifest.json","e473b4f50aaddfa1aab141b7e3f68cb9":"./README.md","d04d737d70b363ce68ea5bee21be3495":"./"},"strategy":"all","version":"2016-11-29 16:35:36","name":"webpack-offline","relativePaths":true};
+var __wpo = {
+  "assets": {
+    "main": [
+      "./bundle.a40c8f665e4eae098562.js",
+      "./style.f3aa56713e53aea0d9dde2e8d8d2480e.css",
+      "./favicon.ico",
+      "./CNAME",
+      "./images/app-icon-144.png",
+      "./images/favicon-62.png",
+      "./images/favicon-48.png",
+      "./images/favicon-32.png",
+      "./images/favicon-16.png",
+      "./README.md",
+      "./manifest.json",
+      "./"
+    ],
+    "additional": [],
+    "optional": []
+  },
+  "externals": [],
+  "hashesMap": {
+    "b2bf1e2bcc6eebbf7114ab362a815490ef375012": "./bundle.a40c8f665e4eae098562.js",
+    "7adbdf22c80eee82ec974adc7e517f3e5d471036": "./style.f3aa56713e53aea0d9dde2e8d8d2480e.css",
+    "201495723ff22712dbea07808a42dfdfaedc25a7": "./favicon.ico",
+    "0c2680e90e87a084a4336b6a71ed7b5c5b771d20": "./CNAME",
+    "8e4c111f0caade1c48cd02fdc4fcccd513c11fdd": "./images/app-icon-144.png",
+    "b06074074cdde8db199f4607bec5367463356c87": "./images/favicon-62.png",
+    "2dd9a22452758a9bfbefc44eebbab21ec5b071b6": "./images/favicon-48.png",
+    "104bcb90935f399862808dd475439f08e1a9d4f9": "./images/favicon-32.png",
+    "0986c1177e2db91d00ca770b717ef9f7b9f1a86e": "./images/favicon-16.png",
+    "0f11beb18e2cc55c2eb10f7e2056fa3d5c212fca": "./README.md",
+    "586325461bc963c95ab6b328a3013630e07a4276": "./manifest.json",
+    "c75c25417943b95d2fecf7ef05a6b2231ee6054b": "./"
+  },
+  "strategy": "changed",
+  "responseStrategy": "cache-first",
+  "version": "2017-5-17 11:07:32",
+  "name": "webpack-offline",
+  "pluginVersion": "4.6.2",
+  "relativePaths": true
+};
 
-!function(n){function e(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return n[r].call(o.exports,o,o.exports,e),o.l=!0,o.exports}var t={};return e.m=n,e.c=t,e.i=function(n){return n},e.d=function(n,e,t){Object.defineProperty(n,e,{configurable:!1,enumerable:!0,get:t})},e.n=function(n){var t=n&&n.__esModule?function(){return n.default}:function(){return n};return e.d(t,"a",t),t},e.o=function(n,e){return Object.prototype.hasOwnProperty.call(n,e)},e.p="",e(e.s=2)}([function(n,e){},function(n,e){"use strict"},function(n,e,t){"use strict";function r(n){function e(){if(!p.additional.length)return Promise.resolve();s&&console.log("[SW]:","Caching additional");var n=void 0;return n="changed"===v?r("additional"):t("additional"),n.catch(function(n){console.error("[SW]:","Cache section `additional` failed to load")})}function t(e){var t=p[e];return caches.open(S).then(function(e){return o(e,t,{bust:n.version})}).then(function(){u("Cached assets: "+e,t)}).catch(function(n){throw console.error(n),n})}function r(e){return f().then(function(r){if(!r)return t(e);var i=r[0],c=r[1],a=r[2],s=a.hashmap,f=a.version;if(!a.hashmap||f===n.version)return t(e);var l=Object.keys(s).map(function(n){return s[n]}),h=c.map(function(n){var e=new URL(n.url);return e.search="",e.toString()}),d=p[e],v=[],m=d.filter(function(n){return h.indexOf(n)===-1||l.indexOf(n)===-1});Object.keys(g).forEach(function(n){var e=g[n];if(d.indexOf(e)!==-1&&m.indexOf(e)===-1&&v.indexOf(e)===-1){var t=s[n];t&&h.indexOf(t)!==-1?v.push([t,e]):m.push(e)}}),u("Changed assets: "+e,m),u("Moved assets: "+e,v);var x=Promise.all(v.map(function(n){return i.match(n[0]).then(function(e){return[n[1],e]})}));return caches.open(S).then(function(e){var t=x.then(function(n){return Promise.all(n.map(function(n){return e.put(n[0],n[1])}))});return Promise.all([t,o(e,m,{bust:n.version})])})})}function c(){return caches.keys().then(function(n){var e=n.map(function(n){if(0===n.indexOf(x)&&0!==n.indexOf(S))return console.log("[SW]:","Delete cache:",n),caches.delete(n)});return Promise.all(e)})}function f(){return caches.keys().then(function(n){for(var e=n.length,t=void 0;e--&&(t=n[e],0!==t.indexOf(x)););if(t){var r=void 0;return caches.open(t).then(function(n){return r=n,n.match(new URL(W,location).toString())}).then(function(n){if(n)return Promise.all([r,r.keys(),n.json()])})}})}function l(){return caches.open(S).then(function(e){var t=new Response(JSON.stringify({version:n.version,hashmap:g}));return e.put(new URL(W,location).toString(),t)})}function h(n){return n.catch(function(){}).then(function(n){return n&&n.ok?n:(s&&console.log("[SW]:","Loading navigation fallback ["+w+"] from cache"),i(w,S))})}function d(){Object.keys(p).forEach(function(n){p[n]=p[n].map(function(n){var e=new URL(n,location);return e.search="",e.toString()})}),g=Object.keys(g).reduce(function(n,e){var t=new URL(g[e],location);return t.search="",n[e]=t.toString(),n},{})}var v=n.strategy,p=n.assets,g=n.hashesMap,m={all:n.version,changed:n.version},x=n.name,O=m[v],S=x+":"+O,W="__offline_webpack__data";d();var k=[].concat(p.main,p.additional,p.optional),w=n.navigateFallbackURL;self.addEventListener("install",function(n){console.log("[SW]:","Install event");var e=void 0;e="changed"===v?r("main"):t("main"),n.waitUntil(e)}),self.addEventListener("activate",function(n){console.log("[SW]:","Activate event");var t=e();t=t.then(l),t=t.then(c),t=t.then(function(){if(self.clients&&self.clients.claim)return self.clients.claim()}),n.waitUntil(t)}),self.addEventListener("fetch",function(n){var e=new URL(n.request.url);e.search="";var t=e.toString();if("GET"!==n.request.method||k.indexOf(t)===-1)return w&&a(n.request)?void n.respondWith(h(fetch(n.request))):void(e.origin!==location.origin&&navigator.userAgent.indexOf("Firefox/44.")!==-1&&n.respondWith(fetch(n.request)));var r=i(t,S).then(function(e){if(e)return s&&console.log("[SW]:","URL ["+t+"] from cache"),e;var r=fetch(n.request).then(function(n){if(!n||!n.ok)return s&&console.log("[SW]:","URL ["+t+"] wrong response: ["+n.status+"] "+n.type),n;s&&console.log("[SW]:","URL ["+t+"] fetched");var e=n.clone();return caches.open(S).then(function(n){return n.put(t,e)}).then(function(){console.log("[SW]:","Cache asset: "+t)}),n});return w&&a(n.request)?h(r):r});n.respondWith(r)}),self.addEventListener("message",function(n){var e=n.data;if(e)switch(e.action){case"skipWaiting":self.skipWaiting&&self.skipWaiting()}})}function o(n,e,t){var r=t&&t.bust;return Promise.all(e.map(function(n){return r&&(n=c(n,r)),fetch(n)})).then(function(t){if(t.some(function(n){return!n.ok}))return Promise.reject(new Error("Wrong response status"));var r=t.map(function(t,r){return n.put(e[r],t)});return Promise.all(r)})}function i(n,e){return caches.match(n,{cacheName:e}).catch(function(){})}function c(n,e){var t=n.indexOf("?")!==-1;return n+(t?"&":"?")+"__uncache="+encodeURIComponent(e)}function a(n){return"navigate"===n.mode||n.headers.get("Upgrade-Insecure-Requests")||(n.headers.get("Accept")||"").indexOf("text/html")!==-1}function u(n,e){console.groupCollapsed("[SW]:",n),e.forEach(function(n){console.log("Asset:",n)}),console.groupEnd()}if("undefined"==typeof s)var s=!1;t(1),r(__wpo),n.exports=t(0)}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+      
+
+if (typeof DEBUG === 'undefined') {
+  var DEBUG = false;
+}
+
+function WebpackServiceWorker(params, helpers) {
+  var loaders = helpers.loaders;
+  var cacheMaps = helpers.cacheMaps;
+
+  var strategy = params.strategy;
+  var responseStrategy = params.responseStrategy;
+
+  var assets = params.assets;
+  var loadersMap = params.loaders || {};
+
+  var hashesMap = params.hashesMap;
+  var externals = params.externals;
+
+  // Not used yet
+  // const alwaysRevalidate = params.alwaysRevalidate;
+  // const ignoreSearch = params.ignoreSearch;
+  // const preferOnline = params.preferOnline;
+
+  var CACHE_PREFIX = params.name;
+  var CACHE_TAG = params.version;
+  var CACHE_NAME = CACHE_PREFIX + ':' + CACHE_TAG;
+
+  var STORED_DATA_KEY = '__offline_webpack__data';
+
+  mapAssets();
+
+  var allAssets = [].concat(assets.main, assets.additional, assets.optional);
+  var navigateFallbackURL = params.navigateFallbackURL;
+
+  self.addEventListener('install', function (event) {
+    console.log('[SW]:', 'Install event');
+
+    var installing = undefined;
+
+    if (strategy === 'changed') {
+      installing = cacheChanged('main');
+    } else {
+      installing = cacheAssets('main');
+    }
+
+    event.waitUntil(installing);
+  });
+
+  self.addEventListener('activate', function (event) {
+    console.log('[SW]:', 'Activate event');
+
+    var activation = cacheAdditional();
+
+    // Delete all assets which name starts with CACHE_PREFIX and
+    // is not current cache (CACHE_NAME)
+    activation = activation.then(storeCacheData);
+    activation = activation.then(deleteObsolete);
+    activation = activation.then(function () {
+      if (self.clients && self.clients.claim) {
+        return self.clients.claim();
+      }
+    });
+
+    event.waitUntil(activation);
+  });
+
+  function cacheAdditional() {
+    if (!assets.additional.length) {
+      return Promise.resolve();
+    }
+
+    if (DEBUG) {
+      console.log('[SW]:', 'Caching additional');
+    }
+
+    var operation = undefined;
+
+    if (strategy === 'changed') {
+      operation = cacheChanged('additional');
+    } else {
+      operation = cacheAssets('additional');
+    }
+
+    // Ignore fail of `additional` cache section
+    return operation['catch'](function (e) {
+      console.error('[SW]:', 'Cache section `additional` failed to load');
+    });
+  }
+
+  function cacheAssets(section) {
+    var batch = assets[section];
+
+    return caches.open(CACHE_NAME).then(function (cache) {
+      return addAllNormalized(cache, batch, {
+        bust: params.version,
+        request: params.prefetchRequest
+      });
+    }).then(function () {
+      logGroup('Cached assets: ' + section, batch);
+    })['catch'](function (e) {
+      console.error(e);
+      throw e;
+    });
+  }
+
+  function cacheChanged(section) {
+    return getLastCache().then(function (args) {
+      if (!args) {
+        return cacheAssets(section);
+      }
+
+      var lastCache = args[0];
+      var lastKeys = args[1];
+      var lastData = args[2];
+
+      var lastMap = lastData.hashmap;
+      var lastVersion = lastData.version;
+
+      if (!lastData.hashmap || lastVersion === params.version) {
+        return cacheAssets(section);
+      }
+
+      var lastHashedAssets = Object.keys(lastMap).map(function (hash) {
+        return lastMap[hash];
+      });
+
+      var lastUrls = lastKeys.map(function (req) {
+        var url = new URL(req.url);
+        url.search = '';
+
+        return url.toString();
+      });
+
+      var sectionAssets = assets[section];
+      var moved = [];
+      var changed = sectionAssets.filter(function (url) {
+        if (lastUrls.indexOf(url) === -1 || lastHashedAssets.indexOf(url) === -1) {
+          return true;
+        }
+
+        return false;
+      });
+
+      Object.keys(hashesMap).forEach(function (hash) {
+        var asset = hashesMap[hash];
+
+        // Return if not in sectionAssets or in changed or moved array
+        if (sectionAssets.indexOf(asset) === -1 || changed.indexOf(asset) !== -1 || moved.indexOf(asset) !== -1) return;
+
+        var lastAsset = lastMap[hash];
+
+        if (lastAsset && lastUrls.indexOf(lastAsset) !== -1) {
+          moved.push([lastAsset, asset]);
+        } else {
+          changed.push(asset);
+        }
+      });
+
+      logGroup('Changed assets: ' + section, changed);
+      logGroup('Moved assets: ' + section, moved);
+
+      var movedResponses = Promise.all(moved.map(function (pair) {
+        return lastCache.match(pair[0]).then(function (response) {
+          return [pair[1], response];
+        });
+      }));
+
+      return caches.open(CACHE_NAME).then(function (cache) {
+        var move = movedResponses.then(function (responses) {
+          return Promise.all(responses.map(function (pair) {
+            return cache.put(pair[0], pair[1]);
+          }));
+        });
+
+        return Promise.all([move, addAllNormalized(cache, changed, {
+          bust: params.version,
+          request: params.prefetchRequest
+        })]);
+      });
+    });
+  }
+
+  function deleteObsolete() {
+    return caches.keys().then(function (keys) {
+      var all = keys.map(function (key) {
+        if (key.indexOf(CACHE_PREFIX) !== 0 || key.indexOf(CACHE_NAME) === 0) return;
+
+        console.log('[SW]:', 'Delete cache:', key);
+        return caches['delete'](key);
+      });
+
+      return Promise.all(all);
+    });
+  }
+
+  function getLastCache() {
+    return caches.keys().then(function (keys) {
+      var index = keys.length;
+      var key = undefined;
+
+      while (index--) {
+        key = keys[index];
+
+        if (key.indexOf(CACHE_PREFIX) === 0) {
+          break;
+        }
+      }
+
+      if (!key) return;
+
+      var cache = undefined;
+
+      return caches.open(key).then(function (_cache) {
+        cache = _cache;
+        return _cache.match(new URL(STORED_DATA_KEY, location).toString());
+      }).then(function (response) {
+        if (!response) return;
+
+        return Promise.all([cache, cache.keys(), response.json()]);
+      });
+    });
+  }
+
+  function storeCacheData() {
+    return caches.open(CACHE_NAME).then(function (cache) {
+      var data = new Response(JSON.stringify({
+        version: params.version,
+        hashmap: hashesMap
+      }));
+
+      return cache.put(new URL(STORED_DATA_KEY, location).toString(), data);
+    });
+  }
+
+  self.addEventListener('fetch', function (event) {
+    var requestUrl = event.request.url;
+    var url = new URL(requestUrl);
+    var urlString = undefined;
+
+    if (externals.indexOf(requestUrl) !== -1) {
+      urlString = requestUrl;
+    } else {
+      url.search = '';
+      urlString = url.toString();
+    }
+
+    // Handle only GET requests
+    var isGET = event.request.method === 'GET';
+    var assetMatches = allAssets.indexOf(urlString) !== -1;
+    var cacheUrl = urlString;
+
+    if (!assetMatches) {
+      var cacheRewrite = matchCacheMap(event.request);
+
+      if (cacheRewrite) {
+        cacheUrl = cacheRewrite;
+        assetMatches = true;
+      }
+    }
+
+    if (!assetMatches && isGET) {
+      // If isn't a cached asset and is a navigation request,
+      // fallback to navigateFallbackURL if available
+      if (navigateFallbackURL && isNavigateRequest(event.request)) {
+        event.respondWith(handleNavigateFallback(fetch(event.request)));
+
+        return;
+      }
+    }
+
+    if (!assetMatches || !isGET) {
+      // Fix for https://twitter.com/wanderview/status/696819243262873600
+      if (url.origin !== location.origin && navigator.userAgent.indexOf('Firefox/44.') !== -1) {
+        event.respondWith(fetch(event.request));
+      }
+
+      return;
+    }
+
+    // Logic of caching / fetching is here
+    // * urlString -- url to match from the CACHE_NAME
+    // * event.request -- original Request to perform fetch() if necessary
+    var resource = undefined;
+
+    if (responseStrategy === "network-first") {
+      resource = networkFirstResponse(event, urlString, cacheUrl);
+    }
+    // "cache-first"
+    // (responseStrategy has been validated before)
+    else {
+        resource = cacheFirstResponse(event, urlString, cacheUrl);
+      }
+
+    if (navigateFallbackURL && isNavigateRequest(event.request)) {
+      resource = handleNavigateFallback(resource);
+    }
+
+    event.respondWith(resource);
+  });
+
+  self.addEventListener('message', function (e) {
+    var data = e.data;
+    if (!data) return;
+
+    switch (data.action) {
+      case 'skipWaiting':
+        {
+          if (self.skipWaiting) self.skipWaiting();
+        }break;
+    }
+  });
+
+  function cacheFirstResponse(event, urlString, cacheUrl) {
+    return cachesMatch(cacheUrl, CACHE_NAME).then(function (response) {
+      if (response) {
+        if (DEBUG) {
+          console.log('[SW]:', 'URL [' + cacheUrl + '](' + urlString + ') from cache');
+        }
+
+        return response;
+      }
+
+      // Load and cache known assets
+      var fetching = fetch(event.request).then(function (response) {
+        if (!response.ok) {
+          if (DEBUG) {
+            console.log('[SW]:', 'URL [' + urlString + '] wrong response: [' + response.status + '] ' + response.type);
+          }
+
+          return response;
+        }
+
+        if (DEBUG) {
+          console.log('[SW]:', 'URL [' + urlString + '] from network');
+        }
+
+        if (cacheUrl === urlString) {
+          (function () {
+            var responseClone = response.clone();
+
+            caches.open(CACHE_NAME).then(function (cache) {
+              return cache.put(urlString, responseClone);
+            }).then(function () {
+              console.log('[SW]:', 'Cache asset: ' + urlString);
+            });
+          })();
+        }
+
+        return response;
+      });
+
+      return fetching;
+    });
+  }
+
+  function networkFirstResponse(event, urlString, cacheUrl) {
+    return fetch(event.request).then(function (response) {
+      if (response.ok) {
+        if (DEBUG) {
+          console.log('[SW]:', 'URL [' + urlString + '] from network');
+        }
+
+        return response;
+      }
+
+      // throw to reach the code in the catch below
+      throw new Error("response is not ok");
+    })
+    // this needs to be in a catch() and not just in the then() above
+    // cause if your network is down, the fetch() will throw
+    ['catch'](function () {
+      if (DEBUG) {
+        console.log('[SW]:', 'URL [' + urlString + '] from cache if possible');
+      }
+
+      return cachesMatch(cacheUrl, CACHE_NAME);
+    });
+  }
+
+  function handleNavigateFallback(fetching) {
+    return fetching['catch'](function () {}).then(function (response) {
+      if (!response || !response.ok) {
+        if (DEBUG) {
+          console.log('[SW]:', 'Loading navigation fallback [' + navigateFallbackURL + '] from cache');
+        }
+
+        return cachesMatch(navigateFallbackURL, CACHE_NAME);
+      }
+
+      return response;
+    });
+  }
+
+  function mapAssets() {
+    Object.keys(assets).forEach(function (key) {
+      assets[key] = assets[key].map(function (path) {
+        var url = new URL(path, location);
+
+        if (externals.indexOf(path) === -1) {
+          url.search = '';
+        } else {
+          // Remove hash from possible passed externals
+          url.hash = '';
+        }
+
+        return url.toString();
+      });
+    });
+
+    Object.keys(loadersMap).forEach(function (key) {
+      loadersMap[key] = loadersMap[key].map(function (path) {
+        var url = new URL(path, location);
+
+        if (externals.indexOf(path) === -1) {
+          url.search = '';
+        } else {
+          // Remove hash from possible passed externals
+          url.hash = '';
+        }
+
+        return url.toString();
+      });
+    });
+
+    hashesMap = Object.keys(hashesMap).reduce(function (result, hash) {
+      var url = new URL(hashesMap[hash], location);
+      url.search = '';
+
+      result[hash] = url.toString();
+      return result;
+    }, {});
+
+    externals = externals.map(function (path) {
+      var url = new URL(path, location);
+      url.hash = '';
+
+      return url.toString();
+    });
+  }
+
+  function addAllNormalized(cache, requests, options) {
+    var allowLoaders = options.allowLoaders !== false;
+    var bustValue = options && options.bust;
+    var requestInit = options.request || {
+      credentials: 'omit',
+      mode: 'cors'
+    };
+
+    return Promise.all(requests.map(function (request) {
+      if (bustValue) {
+        request = applyCacheBust(request, bustValue);
+      }
+
+      return fetch(request, requestInit);
+    })).then(function (responses) {
+      if (responses.some(function (response) {
+        return !response.ok;
+      })) {
+        return Promise.reject(new Error('Wrong response status'));
+      }
+
+      var extracted = [];
+      var addAll = responses.map(function (response, i) {
+        if (allowLoaders) {
+          extracted.push(extractAssetsWithLoaders(requests[i], response));
+        }
+
+        return cache.put(requests[i], response);
+      });
+
+      if (extracted.length) {
+        (function () {
+          var newOptions = copyObject(options);
+          newOptions.allowLoaders = false;
+
+          var waitAll = addAll;
+
+          addAll = Promise.all(extracted).then(function (all) {
+            var extractedRequests = [].concat.apply([], all);
+
+            if (requests.length) {
+              waitAll = waitAll.concat(addAllNormalized(cache, extractedRequests, newOptions));
+            }
+
+            return Promise.all(waitAll);
+          });
+        })();
+      } else {
+        addAll = Promise.all(addAll);
+      }
+
+      return addAll;
+    });
+  }
+
+  function extractAssetsWithLoaders(request, response) {
+    var all = Object.keys(loadersMap).map(function (key) {
+      var loader = loadersMap[key];
+
+      if (loader.indexOf(request) !== -1 && loaders[key]) {
+        return loaders[key](response.clone());
+      }
+    }).filter(function (a) {
+      return !!a;
+    });
+
+    return Promise.all(all).then(function (all) {
+      return [].concat.apply([], all);
+    });
+  }
+
+  function matchCacheMap(request) {
+    var urlString = request.url;
+    var url = new URL(urlString);
+
+    var requestType = undefined;
+
+    if (request.mode === 'navigate') {
+      requestType = 'navigate';
+    } else if (url.origin === location.origin) {
+      requestType = 'same-origin';
+    } else {
+      requestType = 'cross-origin';
+    }
+
+    for (var i = 0; i < cacheMaps.length; i++) {
+      var map = cacheMaps[i];
+
+      if (!map) continue;
+      if (map.requestTypes && map.requestTypes.indexOf(requestType) === -1) {
+        continue;
+      }
+
+      var newString = undefined;
+
+      if (typeof map.match === 'function') {
+        newString = map.match(url, request);
+      } else {
+        newString = urlString.replace(map.match, map.to);
+      }
+
+      if (newString && newString !== urlString) {
+        return newString;
+      }
+    }
+  }
+}
+
+function cachesMatch(request, cacheName) {
+  return caches.match(request, {
+    cacheName: cacheName
+  })
+  // Return void if error happened (cache not found)
+  ['catch'](function () {});
+}
+
+function applyCacheBust(asset, key) {
+  var hasQuery = asset.indexOf('?') !== -1;
+  return asset + (hasQuery ? '&' : '?') + '__uncache=' + encodeURIComponent(key);
+}
+
+function getClientsURLs() {
+  if (!self.clients) {
+    return Promise.resolve([]);
+  }
+
+  return self.clients.matchAll({
+    includeUncontrolled: true
+  }).then(function (clients) {
+    if (!clients.length) return [];
+
+    var result = [];
+
+    clients.forEach(function (client) {
+      var url = new URL(client.url);
+      url.search = '';
+      url.hash = '';
+      var urlString = url.toString();
+
+      if (!result.length || result.indexOf(urlString) === -1) {
+        result.push(urlString);
+      }
+    });
+
+    return result;
+  });
+}
+
+function isNavigateRequest(request) {
+  return request.mode === 'navigate' || request.headers.get('Upgrade-Insecure-Requests') || (request.headers.get('Accept') || '').indexOf('text/html') !== -1;
+}
+
+function copyObject(original) {
+  return Object.keys(original).reduce(function (result, key) {
+    result[key] = original[key];
+    return result;
+  }, {});
+}
+
+function logGroup(title, assets) {
+  console.groupCollapsed('[SW]:', title);
+
+  assets.forEach(function (asset) {
+    console.log('Asset:', asset);
+  });
+
+  console.groupEnd();
+}
+      WebpackServiceWorker(__wpo, {
+loaders: {},
+cacheMaps: [],
+});
+      module.exports = __webpack_require__(0)
+    
+
+/***/ })
+/******/ ]);
