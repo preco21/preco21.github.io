@@ -105,8 +105,8 @@ function config({dev} = {}) {
         new NoEmitOnErrorsPlugin(),
       ] : [
         // new PrepackPlugin(),
-        new OptimizeJSPlugin(),
         new BabiliPlugin(),
+        new OptimizeJSPlugin(),
         new ExtractTextPlugin({
           filename: `style${dev ? '' : '.[contenthash]'}.css`,
           allChunks: true,
