@@ -11,7 +11,9 @@ const config = webpackConfig({dev: true});
 const devServer = new WebpackDevServer(webpack(config), {
   hot: true,
   historyApiFallback: true,
-  overlay: {errors: true},
+  overlay: {
+    errors: true,
+  },
   stats: {
     colors: true,
   },
