@@ -9,8 +9,8 @@ import CleanPlugin from 'clean-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import HTMLPlugin from 'html-webpack-plugin';
 // import PrepackPlugin from 'prepack-webpack-plugin';
-import OptimizeJSPlugin from 'optimize-js-plugin';
 import BabiliPlugin from 'babili-webpack-plugin';
+import OptimizeJSPlugin from 'optimize-js-plugin';
 import ExtractTextPlugin, {extract} from 'extract-text-webpack-plugin';
 import OfflinePlugin from 'offline-plugin';
 
