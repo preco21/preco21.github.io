@@ -9,7 +9,6 @@ import App from './components/App';
 
 if (process.env.NODE_ENV === 'production') {
   const {install} = require('offline-plugin/runtime');
-
   install();
 }
 
