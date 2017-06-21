@@ -1,5 +1,6 @@
 import {resolve} from 'path';
 import {
+  optimize,
   DefinePlugin,
   HotModuleReplacementPlugin,
   NamedModulesPlugin,
@@ -13,6 +14,8 @@ import BabiliPlugin from 'babili-webpack-plugin';
 import OptimizeJSPlugin from 'optimize-js-plugin';
 import ExtractTextPlugin, {extract} from 'extract-text-webpack-plugin';
 import OfflinePlugin from 'offline-plugin';
+
+const {ModuleConcatenationPlugin} = optimize;
 
 const host = 'localhost';
 const port = process.env.PORT || 3000;
@@ -104,6 +107,7 @@ export default function config({dev} = {}) {
         new NamedModulesPlugin(),
         new NoEmitOnErrorsPlugin(),
       ] : [
+        new ModuleConcatenationPlugin(),
         new PrepackPlugin(),
         new BabiliPlugin(),
         new OptimizeJSPlugin(),
