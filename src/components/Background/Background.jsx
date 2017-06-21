@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import granim from '../../utils/granim';
 import * as styles from './styles.css';
 
-class Background extends Component {
+export default class Background extends Component {
   state = {
     granim: null,
     width: 0,
@@ -60,7 +60,3 @@ class Background extends Component {
     );
   }
 }
-
-export {
-  Background as default,
-};

@@ -3,7 +3,7 @@ import anime from 'animejs';
 import IconButton from 'material-ui/IconButton';
 import * as styles from './styles.css';
 
-class Main extends Component {
+export default class Main extends Component {
   componentDidMount() {
     anime({
       targets: '#text',
@@ -59,7 +59,3 @@ class Main extends Component {
     );
   }
 }
-
-export {
-  Main as default,
-};

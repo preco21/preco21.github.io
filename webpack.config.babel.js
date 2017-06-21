@@ -27,7 +27,7 @@ const copy = [
   },
 ];
 
-function config({dev} = {}) {
+export default function config({dev} = {}) {
   const env = dev ? 'development' : 'production';
 
   return {
@@ -119,7 +119,3 @@ function config({dev} = {}) {
     },
   };
 }
-
-export {
-  config as default,
-};
