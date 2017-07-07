@@ -54,7 +54,6 @@
     "offline-plugin": "^4.8.1",
     "opn": "^5.1.0",
     "optimize-js-plugin": "^0.0.4",
-    "prepack-webpack-plugin": "^1.1.0",
     "react-hot-loader": "next",
     "style-loader": "^0.18.0",
     "webpack": "^3.0.0",
