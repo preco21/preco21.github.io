@@ -35,11 +35,13 @@ export default function config({dev} = {}) {
   return {
     devtool: dev ? 'eval-source-map' : 'hidden-source-map',
     entry: [
-      ...dev ? [
-        `webpack-dev-server/client?${url}`,
-        'webpack/hot/only-dev-server',
-        'react-hot-loader/patch',
-      ] : [],
+      ...dev
+        ? [
+          `webpack-dev-server/client?${url}`,
+          'webpack/hot/only-dev-server',
+          'react-hot-loader/patch',
+        ]
+        : [],
       'babel-polyfill',
       `./${src}/index.jsx`,
     ],
@@ -101,20 +103,22 @@ export default function config({dev} = {}) {
       new DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(env),
       }),
-      ...dev ? [
-        new HotModuleReplacementPlugin(),
-        new NamedModulesPlugin(),
-        new NoEmitOnErrorsPlugin(),
-      ] : [
-        new ModuleConcatenationPlugin(),
-        new BabiliPlugin(),
-        new OptimizeJSPlugin(),
-        new ExtractTextPlugin({
-          filename: `style${dev ? '' : '.[contenthash]'}.css`,
-          allChunks: true,
-        }),
-        new OfflinePlugin(),
-      ],
+      ...dev
+        ? [
+          new HotModuleReplacementPlugin(),
+          new NamedModulesPlugin(),
+          new NoEmitOnErrorsPlugin(),
+        ]
+        : [
+          new ModuleConcatenationPlugin(),
+          new BabiliPlugin(),
+          new OptimizeJSPlugin(),
+          new ExtractTextPlugin({
+            filename: `style${dev ? '' : '.[contenthash]'}.css`,
+            allChunks: true,
+          }),
+          new OfflinePlugin(),
+        ],
     ],
     resolve: {
       extensions: ['.js', '.jsx', '.json'],
