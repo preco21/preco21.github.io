@@ -16,10 +16,6 @@ import OfflinePlugin from 'offline-plugin';
 
 const {ModuleConcatenationPlugin} = optimize;
 
-const host = 'localhost';
-const port = process.env.PORT || 3000;
-const url = `http://${host}:${port}/`;
-
 const src = 'src';
 const dest = 'app';
 const clean = [dest];
@@ -29,7 +25,7 @@ const copy = [
   },
 ];
 
-export default function config({dev} = {}) {
+export default function config({dev, devServer} = {}) {
   const env = dev ? 'development' : 'production';
 
   return {
@@ -37,7 +33,7 @@ export default function config({dev} = {}) {
     entry: [
       ...dev
         ? [
-          `webpack-dev-server/client?${url}`,
+          `webpack-dev-server/client?${devServer}`,
           'webpack/hot/only-dev-server',
           'react-hot-loader/patch',
         ]

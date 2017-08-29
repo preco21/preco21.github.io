@@ -7,7 +7,7 @@ const host = 'localhost';
 const port = process.env.PORT || 3000;
 const url = `http://${host}:${port}/`;
 
-const config = webpackConfig({dev: true});
+const config = webpackConfig({dev: true, devServer: url});
 const devServer = new WebpackDevServer(webpack(config), {
   hot: true,
   historyApiFallback: true,
