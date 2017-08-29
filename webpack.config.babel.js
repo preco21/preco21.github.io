@@ -25,7 +25,7 @@ const dest = 'app';
 const clean = [dest];
 const copy = [
   {
-    from: 'content',
+    from: 'static',
   },
 ];
 
