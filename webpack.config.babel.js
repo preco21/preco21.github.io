@@ -59,27 +59,29 @@ export default function config({dev, devServer} = {}) {
         {
           test: /\.css$/,
           include: resolve(__dirname, src),
-          use: dev ? [
-            'style-loader',
-            {
-              loader: 'css-loader',
-              options: {
-                sourceMap: true,
-                modules: true,
-                localIdentName: '[name]__[local]___[hash:base64:5]',
+          use: dev
+            ? [
+              'style-loader',
+              {
+                loader: 'css-loader',
+                options: {
+                  sourceMap: true,
+                  modules: true,
+                  localIdentName: '[name]__[local]___[hash:base64:5]',
+                },
               },
-            },
-          ] : extract({
-            fallback: 'style-loader',
-            use: {
-              loader: 'css-loader',
-              options: {
-                sourceMap: true,
-                modules: true,
-                localIdentName: '[name]__[local]___[hash:base64:5]',
+            ]
+            : extract({
+              fallback: 'style-loader',
+              use: {
+                loader: 'css-loader',
+                options: {
+                  sourceMap: true,
+                  modules: true,
+                  localIdentName: '[name]__[local]___[hash:base64:5]',
+                },
               },
-            },
-          }),
+            }),
         },
       ],
     },
