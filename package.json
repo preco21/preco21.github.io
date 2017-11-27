@@ -26,7 +26,7 @@
     "offline-plugin": "^4.8.3",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-hot-loader": "next",
+    "react-hot-loader": "^3.0.0",
     "react-tap-event-plugin": "^2.0.0",
     "redbox-react": "^1.5.0"
   },
