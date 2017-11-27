@@ -1,6 +1,17 @@
 {
   "presets": [
-    ["env", {"targets": {"node": true}}],
-    "stage-1"
-  ]
+    ["env", {"modules": false}],
+    "stage-1",
+    "react"
+  ],
+  "plugins": [
+    "transform-runtime"
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "react-hot-loader/babel"
+      ]
+    }
+  }
 }

@@ -1,20 +1,20 @@
-import {resolve} from 'path';
-import {
-  optimize,
+const {resolve} = require('path');
+const {
+  optimize: {ModuleConcatenationPlugin},
   DefinePlugin,
   HotModuleReplacementPlugin,
   NamedModulesPlugin,
   NoEmitOnErrorsPlugin,
-} from 'webpack';
-import CleanPlugin from 'clean-webpack-plugin';
-import CopyPlugin from 'copy-webpack-plugin';
-import HTMLPlugin from 'html-webpack-plugin';
-import BabiliPlugin from 'babili-webpack-plugin';
-import OptimizeJSPlugin from 'optimize-js-plugin';
-import ExtractTextPlugin, {extract} from 'extract-text-webpack-plugin';
-import OfflinePlugin from 'offline-plugin';
+} = require('webpack');
+const CleanPlugin = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+const HTMLPlugin = require('html-webpack-plugin');
+const BabiliPlugin = require('babili-webpack-plugin');
+const OptimizeJSPlugin = require('optimize-js-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const OfflinePlugin = require('offline-plugin');
 
-const {ModuleConcatenationPlugin} = optimize;
+const {extract} = ExtractTextPlugin;
 
 const src = 'src';
 const dest = 'app';
@@ -25,7 +25,7 @@ const copy = [
   },
 ];
 
-export default function config({dev, devServer} = {}) {
+function config({dev, devServer} = {}) {
   const env = dev ? 'development' : 'production';
 
   return {
@@ -122,3 +122,5 @@ export default function config({dev, devServer} = {}) {
     },
   };
 }
+
+module.exports = config;

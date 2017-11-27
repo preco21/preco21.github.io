@@ -7,12 +7,14 @@
 
 This branch contains source of [prevl.io](https://prevl.io) website.
 
+**Prerequisites:** Node.js (>= 8.x), Yarn (>= 1)
+
 ## Install
 
 ```bash
 $ git clone https://github.com/preco21/preco21.github.io.git
 $ cd preco21.github.io
-$ npm install
+$ yarn
 ```
 
 ## Usage
@@ -20,19 +22,19 @@ $ npm install
 ### Serve website
 
 ```bash
-$ npm start
+$ yarn start
 ```
 
 ### Build website
 
 ```bash
-$ npm run build
+$ yarn run build
 ```
 
 ### Deploy (on your master branch)
 
 ```bash
-$ npm run deploy
+$ yarn run deploy
 ```
 
 ## License

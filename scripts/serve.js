@@ -1,7 +1,7 @@
-import webpack from 'webpack';
-import WebpackDevServer from 'webpack-dev-server';
-import opn from 'opn';
-import webpackConfig from '../webpack.config.babel';
+const webpack = require('webpack');
+const WebpackDevServer = require('webpack-dev-server');
+const opn = require('opn');
+const webpackConfig = require('../webpack.config');
 
 const host = 'localhost';
 const port = process.env.PORT || 3000;
