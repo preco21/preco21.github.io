@@ -38,7 +38,6 @@ export default function config({dev, devServer} = {}) {
           'react-hot-loader/patch',
         ]
         : [],
-      'babel-polyfill',
       `./${src}/index.jsx`,
     ],
     output: {
