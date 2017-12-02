@@ -9,7 +9,7 @@ const {
 const CleanPlugin = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const HTMLPlugin = require('html-webpack-plugin');
-const BabiliPlugin = require('babili-webpack-plugin');
+const BabelMinifyPlugin = require('babel-minify-webpack-plugin');
 const OptimizeJSPlugin = require('optimize-js-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
@@ -108,7 +108,7 @@ function config({dev, devServer} = {}) {
         ]
         : [
           new ModuleConcatenationPlugin(),
-          new BabiliPlugin(),
+          new BabelMinifyPlugin(),
           new OptimizeJSPlugin(),
           new ExtractTextPlugin({
             filename: `style${dev ? '' : '.[contenthash]'}.css`,
