@@ -3,9 +3,9 @@ const WebpackDevServer = require('webpack-dev-server');
 const opn = require('opn');
 const webpackConfig = require('../webpack.config');
 
-const host = 'localhost';
+const host = '0.0.0.0';
 const port = process.env.PORT || 3000;
-const url = `http://${host}:${port}/`;
+const url = `http://localhost:${port}/`;
 
 const config = webpackConfig({dev: true, devServer: url});
 const devServer = new WebpackDevServer(webpack(config), {
@@ -27,6 +27,6 @@ devServer.listen(port, host, async (err) => {
   }
 
   // eslint-disable-next-line no-console
-  console.log(`Listening at ${url}`);
+  console.log(`> Ready on ${url}`);
   await opn(url);
 });
