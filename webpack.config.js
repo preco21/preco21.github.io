@@ -6,6 +6,7 @@ const {
   NamedModulesPlugin,
   NoEmitOnErrorsPlugin,
 } = require('webpack');
+const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 const CleanPlugin = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const HTMLPlugin = require('html-webpack-plugin');
@@ -25,7 +26,7 @@ const copy = [
   },
 ];
 
-function config({dev, devServer} = {}) {
+function config({report, dev, devServer} = {}) {
   const env = dev ? 'development' : 'production';
 
   return {
@@ -105,6 +106,10 @@ function config({dev, devServer} = {}) {
           new HotModuleReplacementPlugin(),
           new NamedModulesPlugin(),
           new NoEmitOnErrorsPlugin(),
+          new BundleAnalyzerPlugin({
+            analyzerHost: '0.0.0.0',
+            openAnalyzer: false,
+          }),
         ]
         : [
           new ModuleConcatenationPlugin(),
@@ -114,6 +119,13 @@ function config({dev, devServer} = {}) {
             filename: `style${dev ? '' : '.[contenthash]'}.css`,
             allChunks: true,
           }),
+          ...report
+            ? [
+              new BundleAnalyzerPlugin({
+                analyzerMode: 'static',
+              }),
+            ]
+            : [],
           new OfflinePlugin(),
         ],
     ],

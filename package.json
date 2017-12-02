@@ -8,6 +8,7 @@
     "start": "npm run dev",
     "test": "eslint --ext .js,.jsx .",
     "build": "webpack --progress",
+    "build-report": "webpack --progress --env.report",
     "dev": "node scripts/serve.js",
     "deploy": "npm run build && npm run gh-pages",
     "gh-pages": "gh-pages --branch master --dist app"
@@ -52,6 +53,7 @@
     "react-hot-loader": "^3.0.0",
     "style-loader": "^0.19.0",
     "webpack": "^3.5.5",
+    "webpack-bundle-analyzer": "^2.9.1",
     "webpack-dev-server": "^2.7.1"
   }
 }
