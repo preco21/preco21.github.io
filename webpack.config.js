@@ -116,7 +116,7 @@ function config({report, dev, devServer} = {}) {
           new BabelMinifyPlugin(),
           new OptimizeJSPlugin(),
           new ExtractTextPlugin({
-            filename: `style${dev ? '' : '.[contenthash]'}.css`,
+            filename: 'style.[contenthash].css',
             allChunks: true,
           }),
           ...report
