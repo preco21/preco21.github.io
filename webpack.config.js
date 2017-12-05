@@ -2,8 +2,8 @@ const {resolve} = require('path');
 const {
   optimize: {ModuleConcatenationPlugin},
   DefinePlugin,
-  HotModuleReplacementPlugin,
   NamedModulesPlugin,
+  HotModuleReplacementPlugin,
   NoEmitOnErrorsPlugin,
 } = require('webpack');
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
@@ -103,8 +103,8 @@ function config({report, dev, devServer} = {}) {
       }),
       ...dev
         ? [
-          new HotModuleReplacementPlugin(),
           new NamedModulesPlugin(),
+          new HotModuleReplacementPlugin(),
           new NoEmitOnErrorsPlugin(),
           new BundleAnalyzerPlugin({
             analyzerHost: '0.0.0.0',
