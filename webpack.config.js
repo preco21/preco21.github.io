@@ -26,7 +26,7 @@ const copy = [
   },
 ];
 
-function config({report, dev, devServer} = {}) {
+function config({dev, devServer, report} = {}) {
   const env = dev ? 'development' : 'production';
 
   return {
