@@ -1,10 +1,10 @@
 const {resolve} = require('path');
 const {
-  optimize: {ModuleConcatenationPlugin},
   DefinePlugin,
   NamedModulesPlugin,
   HotModuleReplacementPlugin,
   NoEmitOnErrorsPlugin,
+  optimize: {ModuleConcatenationPlugin},
 } = require('webpack');
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 const CleanPlugin = require('clean-webpack-plugin');
@@ -26,7 +26,7 @@ const copy = [
   },
 ];
 
-function config({dev, devServer, report} = {}) {
+module.exports = ({dev, devServer, report} = {}) => {
   const env = dev ? 'development' : 'production';
 
   return {
@@ -133,6 +133,4 @@ function config({dev, devServer, report} = {}) {
       extensions: ['.js', '.jsx', '.json'],
     },
   };
-}
-
-module.exports = config;
+};
