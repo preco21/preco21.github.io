@@ -59,9 +59,9 @@ module.exports = ({dev, devServer, report} = {}) => {
         {
           test: /\.css$/,
           include: resolve(__dirname, src),
-          use: dev
-            ? [
-              'style-loader',
+          use: extract({
+            fallback: 'style-loader',
+            use: [
               {
                 loader: 'css-loader',
                 options: {
@@ -70,18 +70,8 @@ module.exports = ({dev, devServer, report} = {}) => {
                   localIdentName: '[name]__[local]___[hash:base64:5]',
                 },
               },
-            ]
-            : extract({
-              fallback: 'style-loader',
-              use: {
-                loader: 'css-loader',
-                options: {
-                  sourceMap: true,
-                  modules: true,
-                  localIdentName: '[name]__[local]___[hash:base64:5]',
-                },
-              },
-            }),
+            ],
+          }),
         },
       ],
     },
@@ -101,6 +91,11 @@ module.exports = ({dev, devServer, report} = {}) => {
       new DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(env),
       }),
+      new ExtractTextPlugin({
+        disable: dev,
+        filename: '[name].[contenthash].css',
+        allChunks: true,
+      }),
       ...dev
         ? [
           new NamedModulesPlugin(),
@@ -115,10 +110,6 @@ module.exports = ({dev, devServer, report} = {}) => {
           new ModuleConcatenationPlugin(),
           new BabelMinifyPlugin(),
           new OptimizeJSPlugin(),
-          new ExtractTextPlugin({
-            filename: 'style.[contenthash].css',
-            allChunks: true,
-          }),
           ...report
             ? [
               new BundleAnalyzerPlugin({
