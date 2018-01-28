@@ -51,7 +51,7 @@
     "opn": "^5.1.0",
     "optimize-js-plugin": "^0.0.4",
     "react-hot-loader": "^3.0.0",
-    "style-loader": "^0.19.0",
+    "style-loader": "^0.20.0",
     "webpack": "^3.5.5",
     "webpack-bundle-analyzer": "^2.9.1",
     "webpack-dev-server": "^2.7.1"
