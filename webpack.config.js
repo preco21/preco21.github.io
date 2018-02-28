@@ -4,7 +4,10 @@ const {
   NamedModulesPlugin,
   HotModuleReplacementPlugin,
   NoEmitOnErrorsPlugin,
-  optimize: {ModuleConcatenationPlugin},
+  optimize: {
+    CommonsChunkPlugin,
+    ModuleConcatenationPlugin,
+  },
 } = require('webpack');
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 const CleanPlugin = require('clean-webpack-plugin');
@@ -44,6 +47,7 @@ module.exports = ({dev, devServer, report} = {}) => {
     output: {
       path: resolve(__dirname, dest),
       filename: `bundle${dev ? '' : '.[chunkhash]'}.js`,
+      chunkFilename: '[name].[chunkhash].js',
     },
     module: {
       rules: [
@@ -90,6 +94,23 @@ module.exports = ({dev, devServer, report} = {}) => {
       }),
       new DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(env),
+      }),
+      new CommonsChunkPlugin({
+        name: 'commons',
+        filename: 'commons.js',
+        minChunks: 2,
+      }),
+      new CommonsChunkPlugin({
+        name: 'vendor',
+        filename: 'vendor.js',
+        minChunks(module) {
+          return module.context && module.context.includes('node_modules');
+        },
+      }),
+      new CommonsChunkPlugin({
+        name: 'manifest',
+        filename: 'manifest.js',
+        minChunks: Infinity,
       }),
       new ExtractTextPlugin({
         disable: dev,
