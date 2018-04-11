@@ -1,17 +1,19 @@
 var __wpo = {
   "assets": {
     "main": [
-      "./bundle.a40c8f665e4eae098562.js",
-      "./style.f3aa56713e53aea0d9dde2e8d8d2480e.css",
+      "./vendor.733661e1e71b28f3b367.js",
+      "./main.804a0def0deda7709c65.js",
+      "./manifest.85f4f337e94b40a6c472.js",
+      "./main.eb77b73931076801e8467e0c5f08599f.css",
+      "./images/app-icon-144.png",
       "./favicon.ico",
       "./CNAME",
-      "./images/app-icon-144.png",
-      "./images/favicon-62.png",
-      "./images/favicon-48.png",
       "./images/favicon-32.png",
-      "./images/favicon-16.png",
-      "./README.md",
+      "./images/favicon-48.png",
       "./manifest.json",
+      "./images/favicon-62.png",
+      "./README.md",
+      "./images/favicon-16.png",
       "./"
     ],
     "additional": [],
@@ -19,24 +21,26 @@ var __wpo = {
   },
   "externals": [],
   "hashesMap": {
-    "b2bf1e2bcc6eebbf7114ab362a815490ef375012": "./bundle.a40c8f665e4eae098562.js",
-    "7adbdf22c80eee82ec974adc7e517f3e5d471036": "./style.f3aa56713e53aea0d9dde2e8d8d2480e.css",
+    "cc1063e999a667aa2a604daabee90b94f2b9b311": "./vendor.733661e1e71b28f3b367.js",
+    "f38f123b009d314dfb052935690313fa4b803a98": "./main.804a0def0deda7709c65.js",
+    "2a308ecf868bd7340eec372a64aaf9fd5d317651": "./manifest.85f4f337e94b40a6c472.js",
+    "a3f61c8efcdb57037f60575cd4c870d0a17a9440": "./main.eb77b73931076801e8467e0c5f08599f.css",
+    "8e4c111f0caade1c48cd02fdc4fcccd513c11fdd": "./images/app-icon-144.png",
     "201495723ff22712dbea07808a42dfdfaedc25a7": "./favicon.ico",
     "0c2680e90e87a084a4336b6a71ed7b5c5b771d20": "./CNAME",
-    "8e4c111f0caade1c48cd02fdc4fcccd513c11fdd": "./images/app-icon-144.png",
-    "b06074074cdde8db199f4607bec5367463356c87": "./images/favicon-62.png",
-    "2dd9a22452758a9bfbefc44eebbab21ec5b071b6": "./images/favicon-48.png",
     "104bcb90935f399862808dd475439f08e1a9d4f9": "./images/favicon-32.png",
-    "0986c1177e2db91d00ca770b717ef9f7b9f1a86e": "./images/favicon-16.png",
-    "0f11beb18e2cc55c2eb10f7e2056fa3d5c212fca": "./README.md",
+    "2dd9a22452758a9bfbefc44eebbab21ec5b071b6": "./images/favicon-48.png",
     "586325461bc963c95ab6b328a3013630e07a4276": "./manifest.json",
-    "c75c25417943b95d2fecf7ef05a6b2231ee6054b": "./"
+    "b06074074cdde8db199f4607bec5367463356c87": "./images/favicon-62.png",
+    "0f11beb18e2cc55c2eb10f7e2056fa3d5c212fca": "./README.md",
+    "0986c1177e2db91d00ca770b717ef9f7b9f1a86e": "./images/favicon-16.png",
+    "e8dec8d69afef0fa41809861b1c6b1d50b0e5845": "./"
   },
   "strategy": "changed",
   "responseStrategy": "cache-first",
-  "version": "2017-5-17 11:07:32",
+  "version": "2018-4-11 17:18:15",
   "name": "webpack-offline",
-  "pluginVersion": "4.6.2",
+  "pluginVersion": "4.8.4",
   "relativePaths": true
 };
 
@@ -48,9 +52,9 @@ var __wpo = {
 /******/ 	function __webpack_require__(moduleId) {
 /******/
 /******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
+/******/ 		if(installedModules[moduleId]) {
 /******/ 			return installedModules[moduleId].exports;
-/******/
+/******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
@@ -74,9 +78,6 @@ var __wpo = {
 /******/
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// identity function for calling harmony imports with the correct context
-/******/ 	__webpack_require__.i = function(value) { return value; };
 /******/
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
@@ -105,22 +106,65 @@ var __wpo = {
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = "rEv2");
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ "/oeJ":
 /***/ (function(module, exports) {
 
 
 
 /***/ }),
-/* 1 */
+
+/***/ "rEv2":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-      
+
+(function () {
+  var waitUntil = ExtendableEvent.prototype.waitUntil;
+  var respondWith = FetchEvent.prototype.respondWith;
+  var promisesMap = new WeakMap();
+
+  ExtendableEvent.prototype.waitUntil = function (promise) {
+    var extendableEvent = this;
+    var promises = promisesMap.get(extendableEvent);
+
+    if (promises) {
+      promises.push(Promise.resolve(promise));
+      return;
+    }
+
+    promises = [Promise.resolve(promise)];
+    promisesMap.set(extendableEvent, promises);
+
+    // call original method
+    return waitUntil.call(extendableEvent, Promise.resolve().then(function processPromises() {
+      var len = promises.length;
+
+      // wait for all to settle
+      return Promise.all(promises.map(function (p) {
+        return p["catch"](function () {});
+      })).then(function () {
+        // have new items been added? If so, wait again
+        if (promises.length != len) return processPromises();
+        // we're done!
+        promisesMap["delete"](extendableEvent);
+        // reject if one of the promises rejected
+        return Promise.all(promises);
+      });
+    }));
+  };
+
+  FetchEvent.prototype.respondWith = function (promise) {
+    this.waitUntil(promise);
+    return respondWith.call(this, promise);
+  };
+})();;
+        'use strict';
 
 if (typeof DEBUG === 'undefined') {
   var DEBUG = false;
@@ -154,6 +198,7 @@ function WebpackServiceWorker(params, helpers) {
 
   var allAssets = [].concat(assets.main, assets.additional, assets.optional);
   var navigateFallbackURL = params.navigateFallbackURL;
+  var navigateFallbackForRedirects = params.navigateFallbackForRedirects;
 
   self.addEventListener('install', function (event) {
     console.log('[SW]:', 'Install event');
@@ -250,6 +295,7 @@ function WebpackServiceWorker(params, helpers) {
       var lastUrls = lastKeys.map(function (req) {
         var url = new URL(req.url);
         url.search = '';
+        url.hash = '';
 
         return url.toString();
       });
@@ -356,13 +402,14 @@ function WebpackServiceWorker(params, helpers) {
   }
 
   self.addEventListener('fetch', function (event) {
-    var requestUrl = event.request.url;
-    var url = new URL(requestUrl);
-    var urlString = undefined;
+    var url = new URL(event.request.url);
+    url.hash = '';
 
-    if (externals.indexOf(requestUrl) !== -1) {
-      urlString = requestUrl;
-    } else {
+    var urlString = url.toString();
+
+    // Not external, so search part of the URL should be stripped,
+    // if it's external URL, the search part should be kept
+    if (externals.indexOf(urlString) === -1) {
       url.search = '';
       urlString = url.toString();
     }
@@ -405,10 +452,10 @@ function WebpackServiceWorker(params, helpers) {
     // * event.request -- original Request to perform fetch() if necessary
     var resource = undefined;
 
-    if (responseStrategy === "network-first") {
+    if (responseStrategy === 'network-first') {
       resource = networkFirstResponse(event, urlString, cacheUrl);
     }
-    // "cache-first"
+    // 'cache-first'
     // (responseStrategy has been validated before)
     else {
         resource = cacheFirstResponse(event, urlString, cacheUrl);
@@ -460,12 +507,13 @@ function WebpackServiceWorker(params, helpers) {
         if (cacheUrl === urlString) {
           (function () {
             var responseClone = response.clone();
-
-            caches.open(CACHE_NAME).then(function (cache) {
+            var storing = caches.open(CACHE_NAME).then(function (cache) {
               return cache.put(urlString, responseClone);
             }).then(function () {
               console.log('[SW]:', 'Cache asset: ' + urlString);
             });
+
+            event.waitUntil(storing);
           })();
         }
 
@@ -486,10 +534,10 @@ function WebpackServiceWorker(params, helpers) {
         return response;
       }
 
-      // throw to reach the code in the catch below
-      throw new Error("response is not ok");
+      // Throw to reach the code in the catch below
+      throw new Error('Response is not ok');
     })
-    // this needs to be in a catch() and not just in the then() above
+    // This needs to be in a catch() and not just in the then() above
     // cause if your network is down, the fetch() will throw
     ['catch'](function () {
       if (DEBUG) {
@@ -502,15 +550,18 @@ function WebpackServiceWorker(params, helpers) {
 
   function handleNavigateFallback(fetching) {
     return fetching['catch'](function () {}).then(function (response) {
-      if (!response || !response.ok) {
-        if (DEBUG) {
-          console.log('[SW]:', 'Loading navigation fallback [' + navigateFallbackURL + '] from cache');
-        }
+      var isOk = response && response.ok;
+      var isRedirect = response && response.type === 'opaqueredirect';
 
-        return cachesMatch(navigateFallbackURL, CACHE_NAME);
+      if (isOk || isRedirect && !navigateFallbackForRedirects) {
+        return response;
       }
 
-      return response;
+      if (DEBUG) {
+        console.log('[SW]:', 'Loading navigation fallback [' + navigateFallbackURL + '] from cache');
+      }
+
+      return cachesMatch(navigateFallbackURL, CACHE_NAME);
     });
   }
 
@@ -519,11 +570,10 @@ function WebpackServiceWorker(params, helpers) {
       assets[key] = assets[key].map(function (path) {
         var url = new URL(path, location);
 
+        url.hash = '';
+
         if (externals.indexOf(path) === -1) {
           url.search = '';
-        } else {
-          // Remove hash from possible passed externals
-          url.hash = '';
         }
 
         return url.toString();
@@ -534,11 +584,10 @@ function WebpackServiceWorker(params, helpers) {
       loadersMap[key] = loadersMap[key].map(function (path) {
         var url = new URL(path, location);
 
+        url.hash = '';
+
         if (externals.indexOf(path) === -1) {
           url.search = '';
-        } else {
-          // Remove hash from possible passed externals
-          url.hash = '';
         }
 
         return url.toString();
@@ -548,6 +597,7 @@ function WebpackServiceWorker(params, helpers) {
     hashesMap = Object.keys(hashesMap).reduce(function (result, hash) {
       var url = new URL(hashesMap[hash], location);
       url.search = '';
+      url.hash = '';
 
       result[hash] = url.toString();
       return result;
@@ -574,7 +624,7 @@ function WebpackServiceWorker(params, helpers) {
         request = applyCacheBust(request, bustValue);
       }
 
-      return fetch(request, requestInit);
+      return fetch(request, requestInit).then(fixRedirectedResponse);
     })).then(function (responses) {
       if (responses.some(function (response) {
         return !response.ok;
@@ -672,6 +722,19 @@ function WebpackServiceWorker(params, helpers) {
 function cachesMatch(request, cacheName) {
   return caches.match(request, {
     cacheName: cacheName
+  }).then(function (response) {
+    if (isNotRedirectedResponse()) {
+      return response;
+    }
+
+    // Fix already cached redirected responses
+    return fixRedirectedResponse(response).then(function (fixedResponse) {
+      return caches.open(cacheName).then(function (cache) {
+        return cache.put(request, fixedResponse);
+      }).then(function () {
+        return fixedResponse;
+      });
+    });
   })
   // Return void if error happened (cache not found)
   ['catch'](function () {});
@@ -713,6 +776,26 @@ function isNavigateRequest(request) {
   return request.mode === 'navigate' || request.headers.get('Upgrade-Insecure-Requests') || (request.headers.get('Accept') || '').indexOf('text/html') !== -1;
 }
 
+function isNotRedirectedResponse(response) {
+  return !response || !response.redirected || !response.ok || response.type === 'opaqueredirect';
+}
+
+// Based on https://github.com/GoogleChrome/sw-precache/pull/241/files#diff-3ee9060dc7a312c6a822cac63a8c630bR85
+function fixRedirectedResponse(response) {
+  if (isNotRedirectedResponse(response)) {
+    return Promise.resolve(response);
+  }
+
+  var body = 'body' in response ? Promise.resolve(response.body) : response.blob();
+
+  return body.then(function (data) {
+    return new Response(data, {
+      headers: response.headers,
+      status: response.status
+    });
+  });
+}
+
 function copyObject(original) {
   return Object.keys(original).reduce(function (result, key) {
     result[key] = original[key];
@@ -729,12 +812,13 @@ function logGroup(title, assets) {
 
   console.groupEnd();
 }
-      WebpackServiceWorker(__wpo, {
+        WebpackServiceWorker(__wpo, {
 loaders: {},
 cacheMaps: [],
 });
-      module.exports = __webpack_require__(0)
-    
+        module.exports = __webpack_require__("/oeJ")
+      
 
 /***/ })
-/******/ ]);
+
+/******/ });
