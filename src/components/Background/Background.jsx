@@ -33,10 +33,6 @@ export default class Background extends Component {
     });
   }
 
-  shouldComponentUpdate() {
-    return false;
-  }
-
   componentWillUnmount() {
     this.state.granim.clear();
     window.removeEventListener('resize', this.handleResize);
