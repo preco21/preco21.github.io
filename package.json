@@ -8,7 +8,6 @@
     "start": "npm run dev",
     "test": "eslint --ext .js,.jsx .",
     "build": "webpack --progress",
-    "build-report": "webpack --progress --env.report",
     "dev": "node scripts/serve.js",
     "deploy": "npm run build && npm run gh-pages",
     "gh-pages": "gh-pages --branch master --dist app"
@@ -48,12 +47,11 @@
     "gh-pages": "^1.0.0",
     "html-webpack-plugin": "^3.0.0",
     "offline-plugin": "^4.8.3",
-    "opn": "^5.1.0",
     "optimize-js-plugin": "^0.0.4",
     "react-hot-loader": "^4.0.1",
     "style-loader": "^0.20.0",
-    "webpack": "^4.1.0",
+    "webpack": "^3.11.0",
     "webpack-bundle-analyzer": "^2.9.1",
-    "webpack-dev-server": "^3.1.1"
+    "webpack-dev-server": "^2.11.2"
   }
 }

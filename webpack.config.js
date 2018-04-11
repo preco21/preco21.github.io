@@ -2,6 +2,7 @@ const {resolve} = require('path');
 const {
   DefinePlugin,
   NamedModulesPlugin,
+  HashedModuleIdsPlugin,
   HotModuleReplacementPlugin,
   NoEmitOnErrorsPlugin,
   optimize: {
@@ -29,25 +30,24 @@ const copy = [
   },
 ];
 
-module.exports = ({dev, devServer, report} = {}) => {
+module.exports = ({dev} = {}) => {
   const env = dev ? 'development' : 'production';
 
   return {
     devtool: dev ? 'eval-source-map' : 'hidden-source-map',
-    entry: [
-      ...dev
-        ? [
-          `webpack-dev-server/client?${devServer}`,
-          'webpack/hot/only-dev-server',
-          'react-hot-loader/patch',
-        ]
-        : [],
-      `./${src}/index.jsx`,
-    ],
+    entry: {
+      main: [
+        ...dev ? ['react-hot-loader/patch'] : [],
+        `./${src}/index.jsx`,
+      ],
+      main2: [
+        ...dev ? ['react-hot-loader/patch'] : [],
+        `./${src}/index.jsx`,
+      ],
+    },
     output: {
       path: resolve(__dirname, dest),
-      filename: `bundle${dev ? '' : '.[chunkhash]'}.js`,
-      chunkFilename: '[name].[chunkhash].js',
+      filename: `[name]${dev ? '' : '.[chunkhash]'}.js`,
     },
     module: {
       rules: [
@@ -92,52 +92,39 @@ module.exports = ({dev, devServer, report} = {}) => {
           minifyJS: true,
         },
       }),
+      new ExtractTextPlugin({
+        filename: '[name].[contenthash].css',
+        allChunks: true,
+        disable: dev,
+      }),
       new DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(env),
       }),
       new CommonsChunkPlugin({
-        name: 'commons',
-        filename: 'commons.js',
-        minChunks: 2,
-      }),
-      new CommonsChunkPlugin({
         name: 'vendor',
-        filename: 'vendor.js',
         minChunks(module) {
           return module.context && module.context.includes('node_modules');
         },
       }),
       new CommonsChunkPlugin({
         name: 'manifest',
-        filename: 'manifest.js',
         minChunks: Infinity,
-      }),
-      new ExtractTextPlugin({
-        disable: dev,
-        filename: '[name].[contenthash].css',
-        allChunks: true,
       }),
       ...dev
         ? [
           new NamedModulesPlugin(),
           new HotModuleReplacementPlugin(),
-          new NoEmitOnErrorsPlugin(),
           new BundleAnalyzerPlugin({
             analyzerHost: '0.0.0.0',
             openAnalyzer: false,
           }),
         ]
         : [
+          new HashedModuleIdsPlugin(),
+          new NoEmitOnErrorsPlugin(),
           new ModuleConcatenationPlugin(),
           new BabelMinifyPlugin(),
           new OptimizeJSPlugin(),
-          ...report
-            ? [
-              new BundleAnalyzerPlugin({
-                analyzerMode: 'static',
-              }),
-            ]
-            : [],
           new OfflinePlugin(),
         ],
     ],
