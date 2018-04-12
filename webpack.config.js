@@ -35,16 +35,10 @@ module.exports = ({dev} = {}) => {
 
   return {
     devtool: dev ? 'eval-source-map' : 'hidden-source-map',
-    entry: {
-      main: [
-        ...dev ? ['react-hot-loader/patch'] : [],
-        `./${src}/index.jsx`,
-      ],
-      main2: [
-        ...dev ? ['react-hot-loader/patch'] : [],
-        `./${src}/index.jsx`,
-      ],
-    },
+    entry: [
+      ...dev ? ['react-hot-loader/patch'] : [],
+      `./${src}/index.jsx`,
+    ],
     output: {
       path: resolve(__dirname, dest),
       filename: `[name]${dev ? '' : '.[chunkhash]'}.js`,
