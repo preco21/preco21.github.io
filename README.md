@@ -7,8 +7,6 @@
 
 This branch contains source of [prevl.io](https://prevl.io) website.
 
-**Prerequisites:** Node.js (>= 8.x), Yarn (>= 1)
-
 ## Install
 
 ```bash
@@ -31,7 +29,7 @@ $ yarn start
 $ yarn run build
 ```
 
-### Deploy (on your master branch)
+### Deploy (on the `master` branch)
 
 ```bash
 $ yarn run deploy
