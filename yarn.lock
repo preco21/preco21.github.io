@@ -3014,9 +3014,9 @@ graceful-fs@4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.6:
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
 
-granim@^1.0.6:
-  version "1.0.31"
-  resolved "https://registry.yarnpkg.com/granim/-/granim-1.0.31.tgz#9b816ca8ab6f5d8149293880550d8b4e6fab3063"
+granim@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/granim/-/granim-2.0.0.tgz#cd3905e97dd5cb5ef0b164b68d5073ac43f1eec6"
 
 gzip-size@^3.0.0:
   version "3.0.0"
