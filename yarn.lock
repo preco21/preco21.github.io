@@ -133,9 +133,10 @@ alphanum-sort@^1.0.1, alphanum-sort@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
 
-animejs@^2.0.2:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/animejs/-/animejs-2.2.0.tgz#35eefdfc535b81949c9cb06f0b3e60c02e6fdc80"
+animejs@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/animejs/-/animejs-3.0.0.tgz#6b0fb87fbd0b13128b35fe8e790b1671ae7b825d"
+  integrity sha512-YL2+GpjoDYM7hqKpJoh+vhXYNiE0klkgUlDl3m+wCuXh9QJF++/KIT2SQYkBkVhxk/GLlFsqI5I/ogWN4pBQSA==
 
 ansi-escapes@^3.0.0:
   version "3.0.0"
