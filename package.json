@@ -50,7 +50,7 @@
     "optimize-js-plugin": "^0.0.4",
     "react-hot-loader": "^4.0.1",
     "style-loader": "^0.20.0",
-    "webpack": "^3.11.0",
+    "webpack": "^4.39.3",
     "webpack-bundle-analyzer": "^2.9.1",
     "webpack-dev-server": "^2.11.2"
   }
