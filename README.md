@@ -1,11 +1,11 @@
-# preco21.github.io (prevl.io)
+# preco21.github.io (prevl.dev)
 
 [![Code Style Prev](https://img.shields.io/badge/code%20style-prev-32c8fc.svg?style=flat-square)](https://github.com/preco21/eslint-config-prev)
 [![Dependency Status](https://dependencyci.com/github/preco21/preco21.github.io/badge?style=flat-square)](https://dependencyci.com/github/preco21/preco21.github.io)
 
-> :sparkles: Prevl IO :sparkles:
+> :sparkles: Prevl Dev :sparkles:
 
-This branch contains source of [prevl.io](https://prevl.io) website.
+This branch contains source of [prevl.dev](https://prevl.dev) website.
 
 ## Install
 
