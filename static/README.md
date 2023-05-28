@@ -1,6 +1,6 @@
-# preco21.github.io (prevl.io)
+# preco21.github.io (prevl.dev)
 
-> :sparkles: Prevl IO :sparkles:
+> :sparkles: Prevl Dev :sparkles:
 
 Original source is contained in
 [`source`](https://github.com/preco21/preco21.github.io/tree/source) branch.
